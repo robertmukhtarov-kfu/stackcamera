@@ -1,0 +1,15 @@
+# Xcode
+xcuserdata/
+
+# macOS
+.DS_Store
+.Trashes
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent

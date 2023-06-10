@@ -1,0 +1,953 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		711DB556294BAF5500A06CEA /* LibRawUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DB555294BAF5400A06CEA /* LibRawUtils.swift */; };
+		711DB5C9294BAFB800A06CEA /* tiff_writer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB566294BAF6A00A06CEA /* tiff_writer.cpp */; };
+		711DB5CA294BAFBF00A06CEA /* file_write.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB568294BAF6A00A06CEA /* file_write.cpp */; };
+		711DB5CB294BAFC100A06CEA /* apply_profile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB569294BAF6A00A06CEA /* apply_profile.cpp */; };
+		711DB5CC294BAFCB00A06CEA /* colordata.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB56D294BAF6A00A06CEA /* colordata.cpp */; };
+		711DB5CD294BAFCB00A06CEA /* wblists.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB56C294BAF6A00A06CEA /* wblists.cpp */; };
+		711DB5CE294BAFCB00A06CEA /* libraw_datastream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB56F294BAF6A00A06CEA /* libraw_datastream.cpp */; };
+		711DB5CF294BAFCB00A06CEA /* cameralist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB56B294BAF6A00A06CEA /* cameralist.cpp */; };
+		711DB5D0294BAFCB00A06CEA /* colorconst.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB56E294BAF6A00A06CEA /* colorconst.cpp */; };
+		711DB5D1294BAFDD00A06CEA /* dngsdk_glue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB574294BAF6A00A06CEA /* dngsdk_glue.cpp */; };
+		711DB5D2294BAFDD00A06CEA /* rawspeed_glue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB573294BAF6A00A06CEA /* rawspeed_glue.cpp */; };
+		711DB5D4294BAFE800A06CEA /* x3f_parse_process.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB577294BAF6A00A06CEA /* x3f_parse_process.cpp */; };
+		711DB5D5294BAFE800A06CEA /* x3f_utils_patched.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB578294BAF6A00A06CEA /* x3f_utils_patched.cpp */; };
+		711DB5D6294BAFF100A06CEA /* utils_dcraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB57D294BAF6A00A06CEA /* utils_dcraw.cpp */; };
+		711DB5D7294BAFF100A06CEA /* utils_libraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB57B294BAF6A00A06CEA /* utils_libraw.cpp */; };
+		711DB5D8294BAFF100A06CEA /* thumb_utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB57F294BAF6A00A06CEA /* thumb_utils.cpp */; };
+		711DB5D9294BAFF100A06CEA /* decoder_info.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB57E294BAF6A00A06CEA /* decoder_info.cpp */; };
+		711DB5DA294BAFF100A06CEA /* curves.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB582294BAF6A00A06CEA /* curves.cpp */; };
+		711DB5DB294BAFF100A06CEA /* read_utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB581294BAF6A00A06CEA /* read_utils.cpp */; };
+		711DB5DC294BAFF100A06CEA /* open.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB57A294BAF6A00A06CEA /* open.cpp */; };
+		711DB5DD294BAFF100A06CEA /* init_close_utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB57C294BAF6A00A06CEA /* init_close_utils.cpp */; };
+		711DB5DE294BAFF100A06CEA /* phaseone_processing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB580294BAF6A00A06CEA /* phaseone_processing.cpp */; };
+		711DB5DF294BB00F00A06CEA /* postprocessing_ph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB584294BAF6A00A06CEA /* postprocessing_ph.cpp */; };
+		711DB5E0294BB00F00A06CEA /* postprocessing_aux.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB587294BAF6A00A06CEA /* postprocessing_aux.cpp */; };
+		711DB5E1294BB00F00A06CEA /* mem_image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB589294BAF6A00A06CEA /* mem_image.cpp */; };
+		711DB5E2294BB00F00A06CEA /* aspect_ratio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB588294BAF6A00A06CEA /* aspect_ratio.cpp */; };
+		711DB5E3294BB00F00A06CEA /* misc_demosaic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB58C294BAF6A00A06CEA /* misc_demosaic.cpp */; };
+		711DB5E4294BB00F00A06CEA /* dcb_demosaic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB58D294BAF6A00A06CEA /* dcb_demosaic.cpp */; };
+		711DB5E5294BB00F00A06CEA /* dht_demosaic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB58E294BAF6A00A06CEA /* dht_demosaic.cpp */; };
+		711DB5E6294BB00F00A06CEA /* ahd_demosaic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB590294BAF6A00A06CEA /* ahd_demosaic.cpp */; };
+		711DB5E7294BB00F00A06CEA /* dcraw_process.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB58A294BAF6A00A06CEA /* dcraw_process.cpp */; };
+		711DB5E8294BB00F00A06CEA /* postprocessing_utils_dcrdefs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB585294BAF6A00A06CEA /* postprocessing_utils_dcrdefs.cpp */; };
+		711DB5E9294BB00F00A06CEA /* aahd_demosaic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB591294BAF6A00A06CEA /* aahd_demosaic.cpp */; };
+		711DB5EA294BB00F00A06CEA /* postprocessing_utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB586294BAF6A00A06CEA /* postprocessing_utils.cpp */; };
+		711DB5EB294BB00F00A06CEA /* xtrans_demosaic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB58F294BAF6A00A06CEA /* xtrans_demosaic.cpp */; };
+		711DB5EC294BB01400A06CEA /* fp_dng.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB59B294BAF6A00A06CEA /* fp_dng.cpp */; };
+		711DB5ED294BB01400A06CEA /* generic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB597294BAF6A00A06CEA /* generic.cpp */; };
+		711DB5EE294BB01400A06CEA /* crx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB59F294BAF6A00A06CEA /* crx.cpp */; };
+		711DB5EF294BB01400A06CEA /* kodak_decoders.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB595294BAF6A00A06CEA /* kodak_decoders.cpp */; };
+		711DB5F0294BB01400A06CEA /* decoders_libraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB594294BAF6A00A06CEA /* decoders_libraw.cpp */; };
+		711DB5F1294BB01400A06CEA /* load_mfbacks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB59A294BAF6A00A06CEA /* load_mfbacks.cpp */; };
+		711DB5F2294BB01400A06CEA /* dng.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB59E294BAF6A00A06CEA /* dng.cpp */; };
+		711DB5F3294BB01400A06CEA /* decoders_dcraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB5A0294BAF6A00A06CEA /* decoders_dcraw.cpp */; };
+		711DB5F4294BB01400A06CEA /* smal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB59C294BAF6A00A06CEA /* smal.cpp */; };
+		711DB5F5294BB01400A06CEA /* fuji_compressed.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB59D294BAF6A00A06CEA /* fuji_compressed.cpp */; };
+		711DB5F6294BB01400A06CEA /* unpack_thumb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB593294BAF6A00A06CEA /* unpack_thumb.cpp */; };
+		711DB5F7294BB01400A06CEA /* unpack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB598294BAF6A00A06CEA /* unpack.cpp */; };
+		711DB5F8294BB01400A06CEA /* decoders_libraw_dcrdefs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB596294BAF6A00A06CEA /* decoders_libraw_dcrdefs.cpp */; };
+		711DB5F9294BB01400A06CEA /* canon_600.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB599294BAF6A00A06CEA /* canon_600.cpp */; };
+		711DB5FA294BB01800A06CEA /* ext_preprocess.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB5AB294BAF6A00A06CEA /* ext_preprocess.cpp */; };
+		711DB5FB294BB01800A06CEA /* raw2image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB5AD294BAF6A00A06CEA /* raw2image.cpp */; };
+		711DB5FC294BB01800A06CEA /* subtract_black.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB5AA294BAF6A00A06CEA /* subtract_black.cpp */; };
+		711DB5FD294BB02200A06CEA /* nikon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB5B6294BAF6A00A06CEA /* nikon.cpp */; };
+		711DB5FE294BB02200A06CEA /* ciff.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB5B3294BAF6A00A06CEA /* ciff.cpp */; };
+		711DB5FF294BB02200A06CEA /* mediumformat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB5B1294BAF6A00A06CEA /* mediumformat.cpp */; };
+		711DB600294BB02200A06CEA /* normalize_model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB5BA294BAF6A00A06CEA /* normalize_model.cpp */; };
+		711DB601294BB02200A06CEA /* sony.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB5B2294BAF6A00A06CEA /* sony.cpp */; };
+		711DB602294BB02200A06CEA /* kodak.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB5BE294BAF6A00A06CEA /* kodak.cpp */; };
+		711DB603294BB02200A06CEA /* p1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB5B4294BAF6A00A06CEA /* p1.cpp */; };
+		711DB604294BB02200A06CEA /* exif_gps.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB5B0294BAF6A00A06CEA /* exif_gps.cpp */; };
+		711DB605294BB02200A06CEA /* fuji.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB5B5294BAF6A00A06CEA /* fuji.cpp */; };
+		711DB606294BB02200A06CEA /* olympus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB5BF294BAF6A00A06CEA /* olympus.cpp */; };
+		711DB607294BB02200A06CEA /* samsung.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB5C0294BAF6A00A06CEA /* samsung.cpp */; };
+		711DB608294BB02200A06CEA /* leica.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB5C4294BAF6A00A06CEA /* leica.cpp */; };
+		711DB609294BB02200A06CEA /* identify_tools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB5BC294BAF6A00A06CEA /* identify_tools.cpp */; };
+		711DB60A294BB02200A06CEA /* identify.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB5AF294BAF6A00A06CEA /* identify.cpp */; };
+		711DB60B294BB02200A06CEA /* pentax.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB5B9294BAF6A00A06CEA /* pentax.cpp */; };
+		711DB60C294BB02200A06CEA /* epson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB5C6294BAF6A00A06CEA /* epson.cpp */; };
+		711DB60D294BB02200A06CEA /* adobepano.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB5B8294BAF6A00A06CEA /* adobepano.cpp */; };
+		711DB60E294BB02200A06CEA /* cr3_parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB5B7294BAF6A00A06CEA /* cr3_parser.cpp */; };
+		711DB60F294BB02200A06CEA /* canon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB5BB294BAF6A00A06CEA /* canon.cpp */; };
+		711DB610294BB02200A06CEA /* minolta.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB5C1294BAF6A00A06CEA /* minolta.cpp */; };
+		711DB611294BB02200A06CEA /* hasselblad_model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB5C5294BAF6A00A06CEA /* hasselblad_model.cpp */; };
+		711DB612294BB02200A06CEA /* tiff.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB5BD294BAF6A00A06CEA /* tiff.cpp */; };
+		711DB613294BB02200A06CEA /* misc_parsers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB5C2294BAF6A00A06CEA /* misc_parsers.cpp */; };
+		711DB614294BB02200A06CEA /* makernotes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB5C3294BAF6A00A06CEA /* makernotes.cpp */; };
+		711DB616294BB35400A06CEA /* libraw_c_api.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 711DB571294BAF6A00A06CEA /* libraw_c_api.cpp */; };
+		71210C762853B37100E44A85 /* RAWCaptureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71210C752853B37100E44A85 /* RAWCaptureDelegate.swift */; };
+		714E378728571B1E008DEBF9 /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714E378628571B1E008DEBF9 /* ImageSaver.swift */; };
+		716FFA8929EAED8D008B03D1 /* libtiff.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 716FFA8629EAED81008B03D1 /* libtiff.a */; };
+		716FFA8A29EAED91008B03D1 /* libtiffxx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 716FFA8729EAED81008B03D1 /* libtiffxx.a */; };
+		716FFA8D29EAEDAE008B03D1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 716FFA8C29EAEDA9008B03D1 /* libz.tbd */; };
+		716FFA9129EAEDC1008B03D1 /* DNGSaver.m in Sources */ = {isa = PBXBuildFile; fileRef = 716FFA9029EAEDBD008B03D1 /* DNGSaver.m */; };
+		716FFA9329EAEE84008B03D1 /* ImageProcessor.metal in Sources */ = {isa = PBXBuildFile; fileRef = 716FFA9229EAEE80008B03D1 /* ImageProcessor.metal */; };
+		716FFA9529EAEF9F008B03D1 /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716FFA9429EAEF9F008B03D1 /* ImageProcessor.swift */; };
+		716FFA9729EAF239008B03D1 /* FormatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716FFA9629EAF238008B03D1 /* FormatButton.swift */; };
+		716FFA9A29EAF7BD008B03D1 /* libjpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 716FFA8829EAED81008B03D1 /* libjpeg.a */; };
+		716FFA9B29EAF7C2008B03D1 /* libpng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 716FFA8529EAED81008B03D1 /* libpng.a */; };
+		71755E0D2A03B78400A72ACF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71755E0C2A03B78400A72ACF /* SettingsView.swift */; };
+		717BEA6329ED6357006983CE /* AutoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717BEA6229ED6357006983CE /* AutoButton.swift */; };
+		71E6E75028510FB400EB7974 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E6E74F28510FB400EB7974 /* Extensions.swift */; };
+		71E6E7522851371A00EB7974 /* LensSelectorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E6E7512851371A00EB7974 /* LensSelectorButton.swift */; };
+		71FEE834285243CE009E5330 /* SettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FEE833285243CE009E5330 /* SettingButton.swift */; };
+		7AA677151CFF765600B353FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA677141CFF765600B353FB /* AppDelegate.swift */; };
+		7AA677171CFF765600B353FB /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA677161CFF765600B353FB /* CameraViewController.swift */; };
+		7AA6771A1CFF765600B353FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AA677181CFF765600B353FB /* Main.storyboard */; };
+		7AA6771C1CFF765600B353FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AA6771B1CFF765600B353FB /* Assets.xcassets */; };
+		7AA6771F1CFF765600B353FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AA6771D1CFF765600B353FB /* LaunchScreen.storyboard */; };
+		7AA677291CFF7B5C00B353FB /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA677281CFF7B5C00B353FB /* PreviewView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		711DB555294BAF5400A06CEA /* LibRawUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibRawUtils.swift; sourceTree = "<group>"; };
+		711DB558294BAF6200A06CEA /* dcraw_common.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = dcraw_common.cpp; sourceTree = "<group>"; };
+		711DB559294BAF6200A06CEA /* dcraw_defs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dcraw_defs.h; sourceTree = "<group>"; };
+		711DB55A294BAF6200A06CEA /* dmp_include.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dmp_include.h; sourceTree = "<group>"; };
+		711DB55B294BAF6200A06CEA /* x3f_tools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = x3f_tools.h; sourceTree = "<group>"; };
+		711DB55C294BAF6200A06CEA /* dcraw_fileio_defs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dcraw_fileio_defs.h; sourceTree = "<group>"; };
+		711DB55D294BAF6200A06CEA /* dcraw_fileio.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = dcraw_fileio.cpp; sourceTree = "<group>"; };
+		711DB55E294BAF6200A06CEA /* defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = defines.h; sourceTree = "<group>"; };
+		711DB55F294BAF6200A06CEA /* libraw_internal_funcs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libraw_internal_funcs.h; sourceTree = "<group>"; };
+		711DB560294BAF6200A06CEA /* libraw_cameraids.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libraw_cameraids.h; sourceTree = "<group>"; };
+		711DB561294BAF6200A06CEA /* demosaic_packs.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = demosaic_packs.cpp; sourceTree = "<group>"; };
+		711DB562294BAF6200A06CEA /* var_defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = var_defines.h; sourceTree = "<group>"; };
+		711DB563294BAF6200A06CEA /* libraw_cxx_defs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libraw_cxx_defs.h; sourceTree = "<group>"; };
+		711DB566294BAF6A00A06CEA /* tiff_writer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = tiff_writer.cpp; sourceTree = "<group>"; };
+		711DB567294BAF6A00A06CEA /* write_ph.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = write_ph.cpp; sourceTree = "<group>"; };
+		711DB568294BAF6A00A06CEA /* file_write.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = file_write.cpp; sourceTree = "<group>"; };
+		711DB569294BAF6A00A06CEA /* apply_profile.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = apply_profile.cpp; sourceTree = "<group>"; };
+		711DB56B294BAF6A00A06CEA /* cameralist.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = cameralist.cpp; sourceTree = "<group>"; };
+		711DB56C294BAF6A00A06CEA /* wblists.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = wblists.cpp; sourceTree = "<group>"; };
+		711DB56D294BAF6A00A06CEA /* colordata.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = colordata.cpp; sourceTree = "<group>"; };
+		711DB56E294BAF6A00A06CEA /* colorconst.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = colorconst.cpp; sourceTree = "<group>"; };
+		711DB56F294BAF6A00A06CEA /* libraw_datastream.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = libraw_datastream.cpp; sourceTree = "<group>"; };
+		711DB570294BAF6A00A06CEA /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		711DB571294BAF6A00A06CEA /* libraw_c_api.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = libraw_c_api.cpp; sourceTree = "<group>"; };
+		711DB573294BAF6A00A06CEA /* rawspeed_glue.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = rawspeed_glue.cpp; sourceTree = "<group>"; };
+		711DB574294BAF6A00A06CEA /* dngsdk_glue.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = dngsdk_glue.cpp; sourceTree = "<group>"; };
+		711DB575294BAF6A00A06CEA /* libraw_cxx.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = libraw_cxx.cpp; sourceTree = "<group>"; };
+		711DB577294BAF6A00A06CEA /* x3f_parse_process.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = x3f_parse_process.cpp; sourceTree = "<group>"; };
+		711DB578294BAF6A00A06CEA /* x3f_utils_patched.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = x3f_utils_patched.cpp; sourceTree = "<group>"; };
+		711DB57A294BAF6A00A06CEA /* open.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = open.cpp; sourceTree = "<group>"; };
+		711DB57B294BAF6A00A06CEA /* utils_libraw.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = utils_libraw.cpp; sourceTree = "<group>"; };
+		711DB57C294BAF6A00A06CEA /* init_close_utils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = init_close_utils.cpp; sourceTree = "<group>"; };
+		711DB57D294BAF6A00A06CEA /* utils_dcraw.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = utils_dcraw.cpp; sourceTree = "<group>"; };
+		711DB57E294BAF6A00A06CEA /* decoder_info.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = decoder_info.cpp; sourceTree = "<group>"; };
+		711DB57F294BAF6A00A06CEA /* thumb_utils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = thumb_utils.cpp; sourceTree = "<group>"; };
+		711DB580294BAF6A00A06CEA /* phaseone_processing.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = phaseone_processing.cpp; sourceTree = "<group>"; };
+		711DB581294BAF6A00A06CEA /* read_utils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = read_utils.cpp; sourceTree = "<group>"; };
+		711DB582294BAF6A00A06CEA /* curves.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = curves.cpp; sourceTree = "<group>"; };
+		711DB584294BAF6A00A06CEA /* postprocessing_ph.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = postprocessing_ph.cpp; sourceTree = "<group>"; };
+		711DB585294BAF6A00A06CEA /* postprocessing_utils_dcrdefs.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = postprocessing_utils_dcrdefs.cpp; sourceTree = "<group>"; };
+		711DB586294BAF6A00A06CEA /* postprocessing_utils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = postprocessing_utils.cpp; sourceTree = "<group>"; };
+		711DB587294BAF6A00A06CEA /* postprocessing_aux.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = postprocessing_aux.cpp; sourceTree = "<group>"; };
+		711DB588294BAF6A00A06CEA /* aspect_ratio.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = aspect_ratio.cpp; sourceTree = "<group>"; };
+		711DB589294BAF6A00A06CEA /* mem_image.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = mem_image.cpp; sourceTree = "<group>"; };
+		711DB58A294BAF6A00A06CEA /* dcraw_process.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = dcraw_process.cpp; sourceTree = "<group>"; };
+		711DB58C294BAF6A00A06CEA /* misc_demosaic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = misc_demosaic.cpp; sourceTree = "<group>"; };
+		711DB58D294BAF6A00A06CEA /* dcb_demosaic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = dcb_demosaic.cpp; sourceTree = "<group>"; };
+		711DB58E294BAF6A00A06CEA /* dht_demosaic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = dht_demosaic.cpp; sourceTree = "<group>"; };
+		711DB58F294BAF6A00A06CEA /* xtrans_demosaic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = xtrans_demosaic.cpp; sourceTree = "<group>"; };
+		711DB590294BAF6A00A06CEA /* ahd_demosaic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ahd_demosaic.cpp; sourceTree = "<group>"; };
+		711DB591294BAF6A00A06CEA /* aahd_demosaic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = aahd_demosaic.cpp; sourceTree = "<group>"; };
+		711DB593294BAF6A00A06CEA /* unpack_thumb.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = unpack_thumb.cpp; sourceTree = "<group>"; };
+		711DB594294BAF6A00A06CEA /* decoders_libraw.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = decoders_libraw.cpp; sourceTree = "<group>"; };
+		711DB595294BAF6A00A06CEA /* kodak_decoders.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = kodak_decoders.cpp; sourceTree = "<group>"; };
+		711DB596294BAF6A00A06CEA /* decoders_libraw_dcrdefs.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = decoders_libraw_dcrdefs.cpp; sourceTree = "<group>"; };
+		711DB597294BAF6A00A06CEA /* generic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = generic.cpp; sourceTree = "<group>"; };
+		711DB598294BAF6A00A06CEA /* unpack.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = unpack.cpp; sourceTree = "<group>"; };
+		711DB599294BAF6A00A06CEA /* canon_600.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = canon_600.cpp; sourceTree = "<group>"; };
+		711DB59A294BAF6A00A06CEA /* load_mfbacks.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = load_mfbacks.cpp; sourceTree = "<group>"; };
+		711DB59B294BAF6A00A06CEA /* fp_dng.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = fp_dng.cpp; sourceTree = "<group>"; };
+		711DB59C294BAF6A00A06CEA /* smal.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = smal.cpp; sourceTree = "<group>"; };
+		711DB59D294BAF6A00A06CEA /* fuji_compressed.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = fuji_compressed.cpp; sourceTree = "<group>"; };
+		711DB59E294BAF6A00A06CEA /* dng.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = dng.cpp; sourceTree = "<group>"; };
+		711DB59F294BAF6A00A06CEA /* crx.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = crx.cpp; sourceTree = "<group>"; };
+		711DB5A0294BAF6A00A06CEA /* decoders_dcraw.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = decoders_dcraw.cpp; sourceTree = "<group>"; };
+		711DB5A2294BAF6A00A06CEA /* libraw_alloc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libraw_alloc.h; sourceTree = "<group>"; };
+		711DB5A3294BAF6A00A06CEA /* libraw_version.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libraw_version.h; sourceTree = "<group>"; };
+		711DB5A4294BAF6A00A06CEA /* libraw_const.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libraw_const.h; sourceTree = "<group>"; };
+		711DB5A5294BAF6A00A06CEA /* libraw_internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libraw_internal.h; sourceTree = "<group>"; };
+		711DB5A6294BAF6A00A06CEA /* libraw_datastream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libraw_datastream.h; sourceTree = "<group>"; };
+		711DB5A7294BAF6A00A06CEA /* libraw.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libraw.h; sourceTree = "<group>"; };
+		711DB5A8294BAF6A00A06CEA /* libraw_types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libraw_types.h; sourceTree = "<group>"; };
+		711DB5AA294BAF6A00A06CEA /* subtract_black.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = subtract_black.cpp; sourceTree = "<group>"; };
+		711DB5AB294BAF6A00A06CEA /* ext_preprocess.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ext_preprocess.cpp; sourceTree = "<group>"; };
+		711DB5AC294BAF6A00A06CEA /* preprocessing_ph.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = preprocessing_ph.cpp; sourceTree = "<group>"; };
+		711DB5AD294BAF6A00A06CEA /* raw2image.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = raw2image.cpp; sourceTree = "<group>"; };
+		711DB5AF294BAF6A00A06CEA /* identify.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = identify.cpp; sourceTree = "<group>"; };
+		711DB5B0294BAF6A00A06CEA /* exif_gps.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = exif_gps.cpp; sourceTree = "<group>"; };
+		711DB5B1294BAF6A00A06CEA /* mediumformat.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = mediumformat.cpp; sourceTree = "<group>"; };
+		711DB5B2294BAF6A00A06CEA /* sony.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = sony.cpp; sourceTree = "<group>"; };
+		711DB5B3294BAF6A00A06CEA /* ciff.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ciff.cpp; sourceTree = "<group>"; };
+		711DB5B4294BAF6A00A06CEA /* p1.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = p1.cpp; sourceTree = "<group>"; };
+		711DB5B5294BAF6A00A06CEA /* fuji.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = fuji.cpp; sourceTree = "<group>"; };
+		711DB5B6294BAF6A00A06CEA /* nikon.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = nikon.cpp; sourceTree = "<group>"; };
+		711DB5B7294BAF6A00A06CEA /* cr3_parser.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = cr3_parser.cpp; sourceTree = "<group>"; };
+		711DB5B8294BAF6A00A06CEA /* adobepano.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = adobepano.cpp; sourceTree = "<group>"; };
+		711DB5B9294BAF6A00A06CEA /* pentax.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = pentax.cpp; sourceTree = "<group>"; };
+		711DB5BA294BAF6A00A06CEA /* normalize_model.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = normalize_model.cpp; sourceTree = "<group>"; };
+		711DB5BB294BAF6A00A06CEA /* canon.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = canon.cpp; sourceTree = "<group>"; };
+		711DB5BC294BAF6A00A06CEA /* identify_tools.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = identify_tools.cpp; sourceTree = "<group>"; };
+		711DB5BD294BAF6A00A06CEA /* tiff.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = tiff.cpp; sourceTree = "<group>"; };
+		711DB5BE294BAF6A00A06CEA /* kodak.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = kodak.cpp; sourceTree = "<group>"; };
+		711DB5BF294BAF6A00A06CEA /* olympus.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = olympus.cpp; sourceTree = "<group>"; };
+		711DB5C0294BAF6A00A06CEA /* samsung.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = samsung.cpp; sourceTree = "<group>"; };
+		711DB5C1294BAF6A00A06CEA /* minolta.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = minolta.cpp; sourceTree = "<group>"; };
+		711DB5C2294BAF6A00A06CEA /* misc_parsers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = misc_parsers.cpp; sourceTree = "<group>"; };
+		711DB5C3294BAF6A00A06CEA /* makernotes.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = makernotes.cpp; sourceTree = "<group>"; };
+		711DB5C4294BAF6A00A06CEA /* leica.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = leica.cpp; sourceTree = "<group>"; };
+		711DB5C5294BAF6A00A06CEA /* hasselblad_model.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = hasselblad_model.cpp; sourceTree = "<group>"; };
+		711DB5C6294BAF6A00A06CEA /* epson.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = epson.cpp; sourceTree = "<group>"; };
+		711DB5C7294BAF6D00A06CEA /* bridging_header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridging_header.h; sourceTree = "<group>"; };
+		71210C752853B37100E44A85 /* RAWCaptureDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAWCaptureDelegate.swift; sourceTree = "<group>"; };
+		714E378628571B1E008DEBF9 /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
+		716FFA7929EAED81008B03D1 /* jpeglib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = jpeglib.h; sourceTree = "<group>"; };
+		716FFA7A29EAED81008B03D1 /* jerror.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = jerror.h; sourceTree = "<group>"; };
+		716FFA7B29EAED81008B03D1 /* tiff.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tiff.h; sourceTree = "<group>"; };
+		716FFA7C29EAED81008B03D1 /* tiffvers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tiffvers.h; sourceTree = "<group>"; };
+		716FFA7D29EAED81008B03D1 /* png.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = png.h; sourceTree = "<group>"; };
+		716FFA7E29EAED81008B03D1 /* pnglibconf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pnglibconf.h; sourceTree = "<group>"; };
+		716FFA7F29EAED81008B03D1 /* pngconf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pngconf.h; sourceTree = "<group>"; };
+		716FFA8029EAED81008B03D1 /* jconfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = jconfig.h; sourceTree = "<group>"; };
+		716FFA8129EAED81008B03D1 /* jmorecfg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = jmorecfg.h; sourceTree = "<group>"; };
+		716FFA8229EAED81008B03D1 /* tiffio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tiffio.h; sourceTree = "<group>"; };
+		716FFA8329EAED81008B03D1 /* tiffconf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tiffconf.h; sourceTree = "<group>"; };
+		716FFA8529EAED81008B03D1 /* libpng.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpng.a; sourceTree = "<group>"; };
+		716FFA8629EAED81008B03D1 /* libtiff.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libtiff.a; sourceTree = "<group>"; };
+		716FFA8729EAED81008B03D1 /* libtiffxx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libtiffxx.a; sourceTree = "<group>"; };
+		716FFA8829EAED81008B03D1 /* libjpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjpeg.a; sourceTree = "<group>"; };
+		716FFA8C29EAEDA9008B03D1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		716FFA8F29EAEDBD008B03D1 /* DNGSaver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DNGSaver.h; sourceTree = "<group>"; };
+		716FFA9029EAEDBD008B03D1 /* DNGSaver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DNGSaver.m; sourceTree = "<group>"; };
+		716FFA9229EAEE80008B03D1 /* ImageProcessor.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = ImageProcessor.metal; sourceTree = "<group>"; };
+		716FFA9429EAEF9F008B03D1 /* ImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
+		716FFA9629EAF238008B03D1 /* FormatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatButton.swift; sourceTree = "<group>"; };
+		71755E0C2A03B78400A72ACF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		717BEA6229ED6357006983CE /* AutoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoButton.swift; sourceTree = "<group>"; };
+		71E6E74F28510FB400EB7974 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		71E6E7512851371A00EB7974 /* LensSelectorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensSelectorButton.swift; sourceTree = "<group>"; };
+		71FEE833285243CE009E5330 /* SettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingButton.swift; sourceTree = "<group>"; };
+		7AA677111CFF765600B353FB /* Stack Camera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stack Camera.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AA677141CFF765600B353FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7AA677161CFF765600B353FB /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		7AA677191CFF765600B353FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7AA6771B1CFF765600B353FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7AA6771E1CFF765600B353FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7AA677201CFF765600B353FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7AA677281CFF7B5C00B353FB /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7AA6770E1CFF765500B353FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				716FFA9B29EAF7C2008B03D1 /* libpng.a in Frameworks */,
+				716FFA8A29EAED91008B03D1 /* libtiffxx.a in Frameworks */,
+				716FFA9A29EAF7BD008B03D1 /* libjpeg.a in Frameworks */,
+				716FFA8D29EAEDAE008B03D1 /* libz.tbd in Frameworks */,
+				716FFA8929EAED8D008B03D1 /* libtiff.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		711DB557294BAF6200A06CEA /* internal */ = {
+			isa = PBXGroup;
+			children = (
+				711DB558294BAF6200A06CEA /* dcraw_common.cpp */,
+				711DB559294BAF6200A06CEA /* dcraw_defs.h */,
+				711DB55A294BAF6200A06CEA /* dmp_include.h */,
+				711DB55B294BAF6200A06CEA /* x3f_tools.h */,
+				711DB55C294BAF6200A06CEA /* dcraw_fileio_defs.h */,
+				711DB55D294BAF6200A06CEA /* dcraw_fileio.cpp */,
+				711DB55E294BAF6200A06CEA /* defines.h */,
+				711DB55F294BAF6200A06CEA /* libraw_internal_funcs.h */,
+				711DB560294BAF6200A06CEA /* libraw_cameraids.h */,
+				711DB561294BAF6200A06CEA /* demosaic_packs.cpp */,
+				711DB562294BAF6200A06CEA /* var_defines.h */,
+				711DB563294BAF6200A06CEA /* libraw_cxx_defs.h */,
+			);
+			path = internal;
+			sourceTree = "<group>";
+		};
+		711DB564294BAF6A00A06CEA /* libraw_src */ = {
+			isa = PBXGroup;
+			children = (
+				711DB565294BAF6A00A06CEA /* write */,
+				711DB56A294BAF6A00A06CEA /* tables */,
+				711DB56F294BAF6A00A06CEA /* libraw_datastream.cpp */,
+				711DB570294BAF6A00A06CEA /* Makefile */,
+				711DB571294BAF6A00A06CEA /* libraw_c_api.cpp */,
+				711DB572294BAF6A00A06CEA /* integration */,
+				711DB575294BAF6A00A06CEA /* libraw_cxx.cpp */,
+				711DB576294BAF6A00A06CEA /* x3f */,
+				711DB579294BAF6A00A06CEA /* utils */,
+				711DB583294BAF6A00A06CEA /* postprocessing */,
+				711DB58B294BAF6A00A06CEA /* demosaic */,
+				711DB592294BAF6A00A06CEA /* decoders */,
+				711DB5A1294BAF6A00A06CEA /* libraw */,
+				711DB5A9294BAF6A00A06CEA /* preprocessing */,
+				711DB5AE294BAF6A00A06CEA /* metadata */,
+			);
+			path = libraw_src;
+			sourceTree = "<group>";
+		};
+		711DB565294BAF6A00A06CEA /* write */ = {
+			isa = PBXGroup;
+			children = (
+				711DB566294BAF6A00A06CEA /* tiff_writer.cpp */,
+				711DB567294BAF6A00A06CEA /* write_ph.cpp */,
+				711DB568294BAF6A00A06CEA /* file_write.cpp */,
+				711DB569294BAF6A00A06CEA /* apply_profile.cpp */,
+			);
+			path = write;
+			sourceTree = "<group>";
+		};
+		711DB56A294BAF6A00A06CEA /* tables */ = {
+			isa = PBXGroup;
+			children = (
+				711DB56B294BAF6A00A06CEA /* cameralist.cpp */,
+				711DB56C294BAF6A00A06CEA /* wblists.cpp */,
+				711DB56D294BAF6A00A06CEA /* colordata.cpp */,
+				711DB56E294BAF6A00A06CEA /* colorconst.cpp */,
+			);
+			path = tables;
+			sourceTree = "<group>";
+		};
+		711DB572294BAF6A00A06CEA /* integration */ = {
+			isa = PBXGroup;
+			children = (
+				711DB573294BAF6A00A06CEA /* rawspeed_glue.cpp */,
+				711DB574294BAF6A00A06CEA /* dngsdk_glue.cpp */,
+			);
+			path = integration;
+			sourceTree = "<group>";
+		};
+		711DB576294BAF6A00A06CEA /* x3f */ = {
+			isa = PBXGroup;
+			children = (
+				711DB577294BAF6A00A06CEA /* x3f_parse_process.cpp */,
+				711DB578294BAF6A00A06CEA /* x3f_utils_patched.cpp */,
+			);
+			path = x3f;
+			sourceTree = "<group>";
+		};
+		711DB579294BAF6A00A06CEA /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				711DB57A294BAF6A00A06CEA /* open.cpp */,
+				711DB57B294BAF6A00A06CEA /* utils_libraw.cpp */,
+				711DB57C294BAF6A00A06CEA /* init_close_utils.cpp */,
+				711DB57D294BAF6A00A06CEA /* utils_dcraw.cpp */,
+				711DB57E294BAF6A00A06CEA /* decoder_info.cpp */,
+				711DB57F294BAF6A00A06CEA /* thumb_utils.cpp */,
+				711DB580294BAF6A00A06CEA /* phaseone_processing.cpp */,
+				711DB581294BAF6A00A06CEA /* read_utils.cpp */,
+				711DB582294BAF6A00A06CEA /* curves.cpp */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		711DB583294BAF6A00A06CEA /* postprocessing */ = {
+			isa = PBXGroup;
+			children = (
+				711DB584294BAF6A00A06CEA /* postprocessing_ph.cpp */,
+				711DB585294BAF6A00A06CEA /* postprocessing_utils_dcrdefs.cpp */,
+				711DB586294BAF6A00A06CEA /* postprocessing_utils.cpp */,
+				711DB587294BAF6A00A06CEA /* postprocessing_aux.cpp */,
+				711DB588294BAF6A00A06CEA /* aspect_ratio.cpp */,
+				711DB589294BAF6A00A06CEA /* mem_image.cpp */,
+				711DB58A294BAF6A00A06CEA /* dcraw_process.cpp */,
+			);
+			path = postprocessing;
+			sourceTree = "<group>";
+		};
+		711DB58B294BAF6A00A06CEA /* demosaic */ = {
+			isa = PBXGroup;
+			children = (
+				711DB58C294BAF6A00A06CEA /* misc_demosaic.cpp */,
+				711DB58D294BAF6A00A06CEA /* dcb_demosaic.cpp */,
+				711DB58E294BAF6A00A06CEA /* dht_demosaic.cpp */,
+				711DB58F294BAF6A00A06CEA /* xtrans_demosaic.cpp */,
+				711DB590294BAF6A00A06CEA /* ahd_demosaic.cpp */,
+				711DB591294BAF6A00A06CEA /* aahd_demosaic.cpp */,
+			);
+			path = demosaic;
+			sourceTree = "<group>";
+		};
+		711DB592294BAF6A00A06CEA /* decoders */ = {
+			isa = PBXGroup;
+			children = (
+				711DB593294BAF6A00A06CEA /* unpack_thumb.cpp */,
+				711DB594294BAF6A00A06CEA /* decoders_libraw.cpp */,
+				711DB595294BAF6A00A06CEA /* kodak_decoders.cpp */,
+				711DB596294BAF6A00A06CEA /* decoders_libraw_dcrdefs.cpp */,
+				711DB597294BAF6A00A06CEA /* generic.cpp */,
+				711DB598294BAF6A00A06CEA /* unpack.cpp */,
+				711DB599294BAF6A00A06CEA /* canon_600.cpp */,
+				711DB59A294BAF6A00A06CEA /* load_mfbacks.cpp */,
+				711DB59B294BAF6A00A06CEA /* fp_dng.cpp */,
+				711DB59C294BAF6A00A06CEA /* smal.cpp */,
+				711DB59D294BAF6A00A06CEA /* fuji_compressed.cpp */,
+				711DB59E294BAF6A00A06CEA /* dng.cpp */,
+				711DB59F294BAF6A00A06CEA /* crx.cpp */,
+				711DB5A0294BAF6A00A06CEA /* decoders_dcraw.cpp */,
+			);
+			path = decoders;
+			sourceTree = "<group>";
+		};
+		711DB5A1294BAF6A00A06CEA /* libraw */ = {
+			isa = PBXGroup;
+			children = (
+				711DB5A2294BAF6A00A06CEA /* libraw_alloc.h */,
+				711DB5A3294BAF6A00A06CEA /* libraw_version.h */,
+				711DB5A4294BAF6A00A06CEA /* libraw_const.h */,
+				711DB5A5294BAF6A00A06CEA /* libraw_internal.h */,
+				711DB5A6294BAF6A00A06CEA /* libraw_datastream.h */,
+				711DB5A7294BAF6A00A06CEA /* libraw.h */,
+				711DB5A8294BAF6A00A06CEA /* libraw_types.h */,
+			);
+			path = libraw;
+			sourceTree = "<group>";
+		};
+		711DB5A9294BAF6A00A06CEA /* preprocessing */ = {
+			isa = PBXGroup;
+			children = (
+				711DB5AA294BAF6A00A06CEA /* subtract_black.cpp */,
+				711DB5AB294BAF6A00A06CEA /* ext_preprocess.cpp */,
+				711DB5AC294BAF6A00A06CEA /* preprocessing_ph.cpp */,
+				711DB5AD294BAF6A00A06CEA /* raw2image.cpp */,
+			);
+			path = preprocessing;
+			sourceTree = "<group>";
+		};
+		711DB5AE294BAF6A00A06CEA /* metadata */ = {
+			isa = PBXGroup;
+			children = (
+				711DB5AF294BAF6A00A06CEA /* identify.cpp */,
+				711DB5B0294BAF6A00A06CEA /* exif_gps.cpp */,
+				711DB5B1294BAF6A00A06CEA /* mediumformat.cpp */,
+				711DB5B2294BAF6A00A06CEA /* sony.cpp */,
+				711DB5B3294BAF6A00A06CEA /* ciff.cpp */,
+				711DB5B4294BAF6A00A06CEA /* p1.cpp */,
+				711DB5B5294BAF6A00A06CEA /* fuji.cpp */,
+				711DB5B6294BAF6A00A06CEA /* nikon.cpp */,
+				711DB5B7294BAF6A00A06CEA /* cr3_parser.cpp */,
+				711DB5B8294BAF6A00A06CEA /* adobepano.cpp */,
+				711DB5B9294BAF6A00A06CEA /* pentax.cpp */,
+				711DB5BA294BAF6A00A06CEA /* normalize_model.cpp */,
+				711DB5BB294BAF6A00A06CEA /* canon.cpp */,
+				711DB5BC294BAF6A00A06CEA /* identify_tools.cpp */,
+				711DB5BD294BAF6A00A06CEA /* tiff.cpp */,
+				711DB5BE294BAF6A00A06CEA /* kodak.cpp */,
+				711DB5BF294BAF6A00A06CEA /* olympus.cpp */,
+				711DB5C0294BAF6A00A06CEA /* samsung.cpp */,
+				711DB5C1294BAF6A00A06CEA /* minolta.cpp */,
+				711DB5C2294BAF6A00A06CEA /* misc_parsers.cpp */,
+				711DB5C3294BAF6A00A06CEA /* makernotes.cpp */,
+				711DB5C4294BAF6A00A06CEA /* leica.cpp */,
+				711DB5C5294BAF6A00A06CEA /* hasselblad_model.cpp */,
+				711DB5C6294BAF6A00A06CEA /* epson.cpp */,
+			);
+			path = metadata;
+			sourceTree = "<group>";
+		};
+		716FFA7729EAED81008B03D1 /* libtiff */ = {
+			isa = PBXGroup;
+			children = (
+				716FFA7829EAED81008B03D1 /* include */,
+				716FFA8429EAED81008B03D1 /* lib */,
+			);
+			path = libtiff;
+			sourceTree = "<group>";
+		};
+		716FFA7829EAED81008B03D1 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				716FFA7929EAED81008B03D1 /* jpeglib.h */,
+				716FFA7A29EAED81008B03D1 /* jerror.h */,
+				716FFA7B29EAED81008B03D1 /* tiff.h */,
+				716FFA7C29EAED81008B03D1 /* tiffvers.h */,
+				716FFA7D29EAED81008B03D1 /* png.h */,
+				716FFA7E29EAED81008B03D1 /* pnglibconf.h */,
+				716FFA7F29EAED81008B03D1 /* pngconf.h */,
+				716FFA8029EAED81008B03D1 /* jconfig.h */,
+				716FFA8129EAED81008B03D1 /* jmorecfg.h */,
+				716FFA8229EAED81008B03D1 /* tiffio.h */,
+				716FFA8329EAED81008B03D1 /* tiffconf.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		716FFA8429EAED81008B03D1 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				716FFA8529EAED81008B03D1 /* libpng.a */,
+				716FFA8629EAED81008B03D1 /* libtiff.a */,
+				716FFA8729EAED81008B03D1 /* libtiffxx.a */,
+				716FFA8829EAED81008B03D1 /* libjpeg.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		716FFA8B29EAEDA9008B03D1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				716FFA8C29EAEDA9008B03D1 /* libz.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		71AAA32C29EDC1B2000FDBDC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7AA677281CFF7B5C00B353FB /* PreviewView.swift */,
+				71E6E7512851371A00EB7974 /* LensSelectorButton.swift */,
+				71FEE833285243CE009E5330 /* SettingButton.swift */,
+				717BEA6229ED6357006983CE /* AutoButton.swift */,
+				716FFA9629EAF238008B03D1 /* FormatButton.swift */,
+				71755E0C2A03B78400A72ACF /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7AA677081CFF765500B353FB = {
+			isa = PBXGroup;
+			children = (
+				7AA677131CFF765600B353FB /* StackCamera */,
+				7AA677121CFF765600B353FB /* Products */,
+				716FFA8B29EAEDA9008B03D1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7AA677121CFF765600B353FB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7AA677111CFF765600B353FB /* Stack Camera.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7AA677131CFF765600B353FB /* StackCamera */ = {
+			isa = PBXGroup;
+			children = (
+				711DB557294BAF6200A06CEA /* internal */,
+				711DB564294BAF6A00A06CEA /* libraw_src */,
+				716FFA7729EAED81008B03D1 /* libtiff */,
+				71AAA32C29EDC1B2000FDBDC /* Views */,
+				711DB5C7294BAF6D00A06CEA /* bridging_header.h */,
+				711DB555294BAF5400A06CEA /* LibRawUtils.swift */,
+				71210C752853B37100E44A85 /* RAWCaptureDelegate.swift */,
+				7AA677161CFF765600B353FB /* CameraViewController.swift */,
+				716FFA9229EAEE80008B03D1 /* ImageProcessor.metal */,
+				716FFA9429EAEF9F008B03D1 /* ImageProcessor.swift */,
+				716FFA8F29EAEDBD008B03D1 /* DNGSaver.h */,
+				716FFA9029EAEDBD008B03D1 /* DNGSaver.m */,
+				714E378628571B1E008DEBF9 /* ImageSaver.swift */,
+				7AA677141CFF765600B353FB /* AppDelegate.swift */,
+				71E6E74F28510FB400EB7974 /* Extensions.swift */,
+				7AA677201CFF765600B353FB /* Info.plist */,
+				7AA677181CFF765600B353FB /* Main.storyboard */,
+				7AA6771B1CFF765600B353FB /* Assets.xcassets */,
+				7AA6771D1CFF765600B353FB /* LaunchScreen.storyboard */,
+			);
+			path = StackCamera;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7AA677101CFF765500B353FB /* Stack Camera */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7AA677231CFF765600B353FB /* Build configuration list for PBXNativeTarget "Stack Camera" */;
+			buildPhases = (
+				7AA6770D1CFF765500B353FB /* Sources */,
+				7AA6770E1CFF765500B353FB /* Frameworks */,
+				7AA6770F1CFF765500B353FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Stack Camera";
+			productName = AVCam;
+			productReference = 7AA677111CFF765600B353FB /* Stack Camera.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7AA677091CFF765500B353FB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 1200;
+				ORGANIZATIONNAME = Apple;
+				TargetAttributes = {
+					7AA677101CFF765500B353FB = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = VA8A2WZVZN;
+						LastSwiftMigration = 1100;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 7AA6770C1CFF765500B353FB /* Build configuration list for PBXProject "StackCamera" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7AA677081CFF765500B353FB;
+			productRefGroup = 7AA677121CFF765600B353FB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7AA677101CFF765500B353FB /* Stack Camera */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7AA6770F1CFF765500B353FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AA6771F1CFF765600B353FB /* LaunchScreen.storyboard in Resources */,
+				7AA6771C1CFF765600B353FB /* Assets.xcassets in Resources */,
+				7AA6771A1CFF765600B353FB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7AA6770D1CFF765500B353FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				711DB5CD294BAFCB00A06CEA /* wblists.cpp in Sources */,
+				711DB5D6294BAFF100A06CEA /* utils_dcraw.cpp in Sources */,
+				71210C762853B37100E44A85 /* RAWCaptureDelegate.swift in Sources */,
+				711DB5FE294BB02200A06CEA /* ciff.cpp in Sources */,
+				711DB5D9294BAFF100A06CEA /* decoder_info.cpp in Sources */,
+				711DB5D4294BAFE800A06CEA /* x3f_parse_process.cpp in Sources */,
+				711DB5D2294BAFDD00A06CEA /* rawspeed_glue.cpp in Sources */,
+				711DB607294BB02200A06CEA /* samsung.cpp in Sources */,
+				716FFA9729EAF239008B03D1 /* FormatButton.swift in Sources */,
+				711DB602294BB02200A06CEA /* kodak.cpp in Sources */,
+				711DB5F7294BB01400A06CEA /* unpack.cpp in Sources */,
+				711DB5F2294BB01400A06CEA /* dng.cpp in Sources */,
+				711DB5D7294BAFF100A06CEA /* utils_libraw.cpp in Sources */,
+				711DB5F9294BB01400A06CEA /* canon_600.cpp in Sources */,
+				71E6E7522851371A00EB7974 /* LensSelectorButton.swift in Sources */,
+				711DB5CC294BAFCB00A06CEA /* colordata.cpp in Sources */,
+				711DB60E294BB02200A06CEA /* cr3_parser.cpp in Sources */,
+				711DB609294BB02200A06CEA /* identify_tools.cpp in Sources */,
+				711DB5DC294BAFF100A06CEA /* open.cpp in Sources */,
+				711DB5E8294BB00F00A06CEA /* postprocessing_utils_dcrdefs.cpp in Sources */,
+				711DB5EC294BB01400A06CEA /* fp_dng.cpp in Sources */,
+				711DB5CB294BAFC100A06CEA /* apply_profile.cpp in Sources */,
+				717BEA6329ED6357006983CE /* AutoButton.swift in Sources */,
+				711DB5EE294BB01400A06CEA /* crx.cpp in Sources */,
+				711DB613294BB02200A06CEA /* misc_parsers.cpp in Sources */,
+				711DB610294BB02200A06CEA /* minolta.cpp in Sources */,
+				711DB5F1294BB01400A06CEA /* load_mfbacks.cpp in Sources */,
+				714E378728571B1E008DEBF9 /* ImageSaver.swift in Sources */,
+				711DB60A294BB02200A06CEA /* identify.cpp in Sources */,
+				711DB60D294BB02200A06CEA /* adobepano.cpp in Sources */,
+				711DB5D0294BAFCB00A06CEA /* colorconst.cpp in Sources */,
+				711DB5E3294BB00F00A06CEA /* misc_demosaic.cpp in Sources */,
+				711DB5ED294BB01400A06CEA /* generic.cpp in Sources */,
+				711DB5E0294BB00F00A06CEA /* postprocessing_aux.cpp in Sources */,
+				711DB616294BB35400A06CEA /* libraw_c_api.cpp in Sources */,
+				711DB5E1294BB00F00A06CEA /* mem_image.cpp in Sources */,
+				711DB5DA294BAFF100A06CEA /* curves.cpp in Sources */,
+				711DB5DD294BAFF100A06CEA /* init_close_utils.cpp in Sources */,
+				711DB5EF294BB01400A06CEA /* kodak_decoders.cpp in Sources */,
+				711DB612294BB02200A06CEA /* tiff.cpp in Sources */,
+				711DB60C294BB02200A06CEA /* epson.cpp in Sources */,
+				711DB5CE294BAFCB00A06CEA /* libraw_datastream.cpp in Sources */,
+				711DB5FC294BB01800A06CEA /* subtract_black.cpp in Sources */,
+				711DB60F294BB02200A06CEA /* canon.cpp in Sources */,
+				711DB5FF294BB02200A06CEA /* mediumformat.cpp in Sources */,
+				711DB5F5294BB01400A06CEA /* fuji_compressed.cpp in Sources */,
+				716FFA9329EAEE84008B03D1 /* ImageProcessor.metal in Sources */,
+				711DB5D8294BAFF100A06CEA /* thumb_utils.cpp in Sources */,
+				711DB600294BB02200A06CEA /* normalize_model.cpp in Sources */,
+				711DB5C9294BAFB800A06CEA /* tiff_writer.cpp in Sources */,
+				711DB5DF294BB00F00A06CEA /* postprocessing_ph.cpp in Sources */,
+				711DB5E4294BB00F00A06CEA /* dcb_demosaic.cpp in Sources */,
+				711DB614294BB02200A06CEA /* makernotes.cpp in Sources */,
+				711DB5FA294BB01800A06CEA /* ext_preprocess.cpp in Sources */,
+				711DB5D1294BAFDD00A06CEA /* dngsdk_glue.cpp in Sources */,
+				711DB5FB294BB01800A06CEA /* raw2image.cpp in Sources */,
+				71E6E75028510FB400EB7974 /* Extensions.swift in Sources */,
+				711DB5F6294BB01400A06CEA /* unpack_thumb.cpp in Sources */,
+				711DB5D5294BAFE800A06CEA /* x3f_utils_patched.cpp in Sources */,
+				711DB611294BB02200A06CEA /* hasselblad_model.cpp in Sources */,
+				711DB5F4294BB01400A06CEA /* smal.cpp in Sources */,
+				711DB5F3294BB01400A06CEA /* decoders_dcraw.cpp in Sources */,
+				711DB5DB294BAFF100A06CEA /* read_utils.cpp in Sources */,
+				711DB5E7294BB00F00A06CEA /* dcraw_process.cpp in Sources */,
+				711DB5E6294BB00F00A06CEA /* ahd_demosaic.cpp in Sources */,
+				711DB604294BB02200A06CEA /* exif_gps.cpp in Sources */,
+				711DB608294BB02200A06CEA /* leica.cpp in Sources */,
+				7AA677291CFF7B5C00B353FB /* PreviewView.swift in Sources */,
+				711DB5F8294BB01400A06CEA /* decoders_libraw_dcrdefs.cpp in Sources */,
+				711DB556294BAF5500A06CEA /* LibRawUtils.swift in Sources */,
+				711DB605294BB02200A06CEA /* fuji.cpp in Sources */,
+				711DB5DE294BAFF100A06CEA /* phaseone_processing.cpp in Sources */,
+				71755E0D2A03B78400A72ACF /* SettingsView.swift in Sources */,
+				711DB60B294BB02200A06CEA /* pentax.cpp in Sources */,
+				711DB5E2294BB00F00A06CEA /* aspect_ratio.cpp in Sources */,
+				7AA677171CFF765600B353FB /* CameraViewController.swift in Sources */,
+				716FFA9529EAEF9F008B03D1 /* ImageProcessor.swift in Sources */,
+				716FFA9129EAEDC1008B03D1 /* DNGSaver.m in Sources */,
+				711DB5CF294BAFCB00A06CEA /* cameralist.cpp in Sources */,
+				711DB5CA294BAFBF00A06CEA /* file_write.cpp in Sources */,
+				71FEE834285243CE009E5330 /* SettingButton.swift in Sources */,
+				711DB5EA294BB00F00A06CEA /* postprocessing_utils.cpp in Sources */,
+				711DB5FD294BB02200A06CEA /* nikon.cpp in Sources */,
+				711DB5E5294BB00F00A06CEA /* dht_demosaic.cpp in Sources */,
+				711DB606294BB02200A06CEA /* olympus.cpp in Sources */,
+				711DB601294BB02200A06CEA /* sony.cpp in Sources */,
+				711DB603294BB02200A06CEA /* p1.cpp in Sources */,
+				7AA677151CFF765600B353FB /* AppDelegate.swift in Sources */,
+				711DB5F0294BB01400A06CEA /* decoders_libraw.cpp in Sources */,
+				711DB5E9294BB00F00A06CEA /* aahd_demosaic.cpp in Sources */,
+				711DB5EB294BB00F00A06CEA /* xtrans_demosaic.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7AA677181CFF765600B353FB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7AA677191CFF765600B353FB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7AA6771D1CFF765600B353FB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7AA6771E1CFF765600B353FB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7AA677211CFF765600B353FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = AVCam/bridging_header.h;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7AA677221CFF765600B353FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = fast;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = AVCam/bridging_header.h;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7AA677241CFF765600B353FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = VA8A2WZVZN;
+				INFOPLIST_FILE = StackCamera/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/StackCamera/libtiff/lib",
+				);
+				"MTL_COMPILER_FLAGS[sdk=*]" = "-fcikernel";
+				PRODUCT_BUNDLE_IDENTIFIER = robertmukhtarov.stackcamera;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = StackCamera/bridging_header.h;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7AA677251CFF765600B353FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = VA8A2WZVZN;
+				INFOPLIST_FILE = StackCamera/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/StackCamera/libtiff/lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = robertmukhtarov.stackcamera;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = StackCamera/bridging_header.h;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7AA6770C1CFF765500B353FB /* Build configuration list for PBXProject "StackCamera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7AA677211CFF765600B353FB /* Debug */,
+				7AA677221CFF765600B353FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7AA677231CFF765600B353FB /* Build configuration list for PBXNativeTarget "Stack Camera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7AA677241CFF765600B353FB /* Debug */,
+				7AA677251CFF765600B353FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7AA677091CFF765500B353FB /* Project object */;
+}
