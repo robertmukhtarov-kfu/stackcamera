@@ -9,7 +9,7 @@ import UIKit
 import AVFoundation
 import Photos
 
-class RAWCaptureDelegate: NSObject, AVCapturePhotoCaptureDelegate {
+final class RAWCaptureDelegate: NSObject, AVCapturePhotoCaptureDelegate {
     
     enum RawCaptureError: Error {
         case noFileDataRepresentation

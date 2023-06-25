@@ -10,7 +10,7 @@ import UIKit
 import SwiftUI
 import Photos
 
-class ImageSaver: NSObject {
+final class ImageSaver: NSObject {
     @AppStorage("compressedImageFormat")
     private var compressedImageFormat = CompressedImageFormat.heif.rawValue
     

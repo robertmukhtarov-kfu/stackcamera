@@ -13,10 +13,6 @@ enum LensType: String {
     case telephoto = "TELE"
 }
 
-protocol LensSelectorButtonDelegate: AnyObject {
-    func didSelectLens(_ type: LensType)
-}
-
 final class LensSelectorButton: UIButton {
     private var availableLenses: [LensType] = []
     

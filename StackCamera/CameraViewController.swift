@@ -7,14 +7,13 @@
 
 import UIKit
 import AVFoundation
-import CoreLocation
 import Photos
 import SwiftUI
 
-class CameraViewController: UIViewController {
+final class CameraViewController: UIViewController {
     
     @AppStorage("tileSize")
-    private var tileSize = 0
+    private var tileSize = 16
     
     @AppStorage("burstDestination")
     private var burstDestination = BurstDestination.shareSheet.rawValue
@@ -30,8 +29,6 @@ class CameraViewController: UIViewController {
     
     var imageBuffer: [Data] = []
     
-    let locationManager = CLLocationManager()
-    
     var startTime: CFAbsoluteTime!
     
     private var tiffTagOrientation = 1
@@ -44,18 +41,12 @@ class CameraViewController: UIViewController {
         
         lensSelectorButton.isEnabled = false
         photoButton.isEnabled = false
-        
         previewView.session = session
-        
-        if locationManager.authorizationStatus == .notDetermined {
-            locationManager.requestWhenInUseAuthorization()
-        }
         
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .authorized:
             // The user has previously granted access to the camera.
             break
-            
         case .notDetermined:
             sessionQueue.suspend()
             AVCaptureDevice.requestAccess(for: .video, completionHandler: { granted in
@@ -64,19 +55,16 @@ class CameraViewController: UIViewController {
                 }
                 self.sessionQueue.resume()
             })
-            
         default:
             setupResult = .notAuthorized
         }
-        
         sessionQueue.async {
             self.configureSession()
         }
-        DispatchQueue.main.async {
-            self.spinner = UIActivityIndicatorView(style: .large)
-            self.spinner.color = UIColor.yellow
-            self.previewView.addSubview(self.spinner)
-        }
+        
+        spinner = UIActivityIndicatorView(style: .large)
+        spinner.color = UIColor.yellow
+        previewView.addSubview(self.spinner)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,9 +80,9 @@ class CameraViewController: UIViewController {
                 
             case .notAuthorized:
                 DispatchQueue.main.async {
-                    let changePrivacySetting = "AVCam doesn't have permission to use the camera, please change privacy settings"
+                    let changePrivacySetting = "Stack Camera doesn't have permission to use the camera, please change privacy settings"
                     let message = NSLocalizedString(changePrivacySetting, comment: "Alert message when the user has denied access to the camera")
-                    let alertController = UIAlertController(title: "AVCam", message: message, preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "Stack Camera", message: message, preferredStyle: .alert)
                     
                     alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Alert OK button"),
                                                             style: .cancel,
@@ -115,7 +103,7 @@ class CameraViewController: UIViewController {
                 DispatchQueue.main.async {
                     let alertMsg = "Alert message when something goes wrong during capture session configuration"
                     let message = NSLocalizedString("Unable to capture media", comment: alertMsg)
-                    let alertController = UIAlertController(title: "AVCam", message: message, preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "Stack Camera", message: message, preferredStyle: .alert)
                     
                     alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Alert OK button"),
                                                             style: .cancel,
@@ -140,7 +128,7 @@ class CameraViewController: UIViewController {
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .all
+        .all
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -152,7 +140,6 @@ class CameraViewController: UIViewController {
                   deviceOrientation.isPortrait || deviceOrientation.isLandscape else {
                 return
             }
-            
             videoPreviewLayerConnection.videoOrientation = newVideoOrientation
         }
     }
@@ -168,7 +155,7 @@ class CameraViewController: UIViewController {
     private let session = AVCaptureSession()
     private var isSessionRunning = false
     
-    private let sessionQueue = DispatchQueue(label: "session queue")
+    private let sessionQueue = DispatchQueue(label: "sessionQueue")
     
     private var setupResult: SessionSetupResult = .success
     
@@ -254,7 +241,7 @@ class CameraViewController: UIViewController {
             if !self.session.isRunning {
                 DispatchQueue.main.async {
                     let message = NSLocalizedString("Unable to resume", comment: "Alert message when unable to resume the session running")
-                    let alertController = UIAlertController(title: "AVCam", message: message, preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "Stack Camera", message: message, preferredStyle: .alert)
                     let cancelAction = UIAlertAction(title: NSLocalizedString("OK", comment: "Alert OK button"), style: .cancel, handler: nil)
                     alertController.addAction(cancelAction)
                     self.present(alertController, animated: true, completion: nil)
@@ -383,8 +370,6 @@ class CameraViewController: UIViewController {
     
     private let photoOutput = AVCapturePhotoOutput()
     
-    @IBOutlet private weak var photoButton: UIButton!
-    
     /// - Tag: CapturePhoto
     @IBAction private func capturePhoto(_ photoButton: UIButton) {
         
@@ -394,7 +379,6 @@ class CameraViewController: UIViewController {
         startTime = CFAbsoluteTimeGetCurrent()
         
         let device = self.videoDeviceInput.device
-        let exposureDuration = device.exposureDuration
         let iso = device.iso
         
         for _ in 1...imageCount {
@@ -422,16 +406,7 @@ class CameraViewController: UIViewController {
                 delegate.didFinish = { result in
                     switch result {
                     case .failure:
-                        print("Error taking photo")
-                        Thread.sleep(forTimeInterval: 0.1)
-                        self.customModeSSValue = exposureDuration
-                        self.customModeISOValue = iso
-                        let delegate = RAWCaptureDelegate()
-                        let newPhotoSettings = AVCapturePhotoSettings(
-                            rawPixelFormatType: self.photoOutput.availableRawPhotoPixelFormatTypes.first { AVCapturePhotoOutput.isBayerRAWPixelFormat($0) }!
-                        )
-                        self.captureDelegates[newPhotoSettings.uniqueID] = delegate
-                        self.photoOutput.capturePhoto(with: newPhotoSettings, delegate: delegate)
+                        fatalError("Error taking photo")
                     case let .success(rawImage):
                         self.imageBuffer.append(rawImage)
                         self.captureDelegates[photoSettings.uniqueID] = nil
@@ -535,30 +510,26 @@ class CameraViewController: UIViewController {
     
     private var settingValuesObservation = [NSKeyValueObservation]()
     
-    @IBOutlet weak var shutterSpeedButton: UIButton!
-    @IBOutlet weak var exposureModeButton: UIButton!
-    @IBOutlet weak var isoButton: UIButton!
-    @IBOutlet weak var imageCountSlider: UISlider!
-    
-    @IBOutlet weak var isoSlider: UISlider!
-    @IBOutlet weak var shutterSpeedSlider: UISlider!
-    @IBOutlet weak var imageCountPicView: UIImageView!
-    @IBOutlet weak var imageCountLabel: UILabel!
-    @IBOutlet weak var autoImageCountButton: AutoButton!
-    @IBOutlet weak var settingsImageView: UIImageView!
-    @IBOutlet weak var processingIndicatorView: UIView!
-    @IBOutlet weak var processingStatusLabel: UILabel!
-    
-    @IBOutlet weak var formatButton: FormatButton!
+    @IBOutlet private weak var photoButton: UIButton!
+    @IBOutlet private weak var shutterSpeedButton: UIButton!
+    @IBOutlet private weak var exposureModeButton: UIButton!
+    @IBOutlet private weak var isoButton: UIButton!
+    @IBOutlet private weak var imageCountSlider: UISlider!
+    @IBOutlet private weak var isoSlider: UISlider!
+    @IBOutlet private weak var shutterSpeedSlider: UISlider!
+    @IBOutlet private weak var imageCountPicView: UIImageView!
+    @IBOutlet private weak var imageCountLabel: UILabel!
+    @IBOutlet private weak var autoImageCountButton: UIButton!
+    @IBOutlet private weak var settingsImageView: UIImageView!
+    @IBOutlet private weak var processingIndicatorView: UIView!
+    @IBOutlet private weak var processingStatusLabel: UILabel!
+    @IBOutlet private weak var formatButton: FormatButton!
+    @IBOutlet private weak var galleryImageView: UIImageView!
     
     var autoImageCountEnabled: Bool = false
     var rawPlusEnabled: Bool = false
-    
-    @IBOutlet weak var galleryImageView: UIImageView!
-
     var customModeSSValue: CMTime!
     var customModeISOValue: Float!
-    
     var imageCount = 15
     var imagesShotCount = 0
     
@@ -795,7 +766,7 @@ class CameraViewController: UIViewController {
     var rotatableViews: [UIView] = []
     
     private func setupRotation() {
-        NotificationCenter.default.addObserver(self, selector: #selector(orientationChanged(_:)), name: UIDevice.orientationDidChangeNotification, object:nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(orientationChanged(_:)), name: UIDevice.orientationDidChangeNotification, object: nil)
         rotatableViews.append(contentsOf: [autoImageCountButton, lensSelectorButton, isoButton, shutterSpeedButton, exposureModeButton, imageCountPicView, imageCountLabel, processingIndicatorView, formatButton, galleryImageView, settingsImageView])
     }
     

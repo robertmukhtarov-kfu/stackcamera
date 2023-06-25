@@ -25,7 +25,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZU-8l-yps" customClass="AutoButton" customModule="Stack_Camera" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZU-8l-yps">
                                 <rect key="frame" x="8" y="50" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="OHc-q0-xaA"/>
@@ -41,14 +41,14 @@
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15" minValue="1" maxValue="40" translatesAutoresizingMaskIntoConstraints="NO" id="P6g-1i-RjL">
-                                <rect key="frame" x="70.333333333333314" y="47" width="112.66666666666669" height="31"/>
+                                <rect key="frame" x="70.333333333333343" y="47" width="279.66666666666663" height="31"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="imageCountSliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Qgv-Gc-FtC"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnn-pn-elD">
-                                <rect key="frame" x="191" y="53" width="20" height="18"/>
+                                <rect key="frame" x="358" y="53" width="20" height="18"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="Bky-7x-yJl"/>
@@ -58,7 +58,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3eR-Rn-XpZ" userLabel="Preview" customClass="PreviewView" customModule="Stack_Camera" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="85" width="223" height="537"/>
+                                <rect key="frame" x="0.0" y="85" width="390" height="537"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -66,27 +66,27 @@
                                 </connections>
                             </view>
                             <label hidden="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera Unavailable" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zf0-db-esM" userLabel="Camera Unavailable">
-                                <rect key="frame" x="8" y="407.66666666666669" width="207" height="28.666666666666686"/>
+                                <rect key="frame" x="8" y="407.66666666666669" width="374" height="28.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="81e-1F-kuR">
-                                <rect key="frame" x="18" y="630" width="171" height="31"/>
+                                <rect key="frame" x="18" y="630" width="338" height="31"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="isoSliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="b1Y-9k-ycd"/>
                                 </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="2tU-sq-Qmz">
-                                <rect key="frame" x="18" y="630" width="187" height="31"/>
+                                <rect key="frame" x="18" y="630" width="354" height="31"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="shutterSpeedSliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="5cZ-Ye-Kzf"/>
                                 </connections>
                             </slider>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Loh-RI-oKw">
-                                <rect key="frame" x="51.666666666666657" y="293.66666666666669" width="120" height="120"/>
+                                <rect key="frame" x="135" y="293.66666666666669" width="120" height="120"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xr5-f4-VnK">
                                         <rect key="frame" x="11.333333333333343" y="35.666666666666629" width="97.666666666666671" height="48.333333333333343"/>
@@ -196,7 +196,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uCj-6P-mHF" userLabel="Photo">
-                                <rect key="frame" x="76.666666666666671" y="724" width="70.000000000000014" height="70"/>
+                                <rect key="frame" x="160" y="724" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="NtC-UN-gTs"/>
                                     <constraint firstAttribute="width" constant="70" id="dxU-UP-4Ae"/>
@@ -218,7 +218,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CbS-OU-vnG">
-                                <rect key="frame" x="16.666666666666671" y="739" width="40" height="39.333333333333371"/>
+                                <rect key="frame" x="44.333333333333343" y="739" width="40" height="39.333333333333371"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <constraints>

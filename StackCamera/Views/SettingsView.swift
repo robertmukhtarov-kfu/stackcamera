@@ -37,48 +37,48 @@ struct SettingsView: View {
         NavigationView {
             Form {
                 Section {
-                    Picker("Размер фрагмента", selection: $tileSize) {
-                        Text("Авто").tag(0)
+                    Picker("Tile Size", selection: $tileSize) {
+                        Text("Auto").tag(0)
                         Text("8 × 8").tag(8)
                         Text("16 × 16").tag(16)
                         Text("32 × 32").tag(32)
                         Text("64 × 64").tag(64)
                     }
                 } header: {
-                    Text("Настройки выравнивания")
+                    Text("Alignment Settings")
                 }
                 
                 Section {
                     Toggle(isOn: $isImageStabilizationEnabled) {
-                        Text("Оптическая стабилизация изображения")
+                        Text("Optical Image Stabilization")
                     }
                 } header: {
-                    Text("Стабилизация изображения")
+                    Text("Image Stabilization")
                 }
 
-                Picker("Формат сжатых изображений", selection: $compressedImageFormat) {
+                Picker("Compressed Image Format", selection: $compressedImageFormat) {
                     VStack(alignment: .leading, spacing: 4.0) {
                         Text("HEIF")
-                        Text("Высокая эффективность, использует меньше пространства").font(.caption).foregroundColor(.gray)
+                        Text("High efficiency, uses less storage").font(.caption).foregroundColor(.gray)
                     }.tag("heif")
                     VStack(alignment: .leading, spacing: 4.0) {
                         Text("JPEG")
-                        Text("Высокая совместимость").font(.caption).foregroundColor(.gray)
+                        Text("High compatibility").font(.caption).foregroundColor(.gray)
                     }.tag("jpeg")
                 }
                 .pickerStyle(.inline)
                 
-                Picker("Место сохранения кадров серийной съемки", selection: $burstDestination) {
-                    Text("Фото").tag(BurstDestination.photos.rawValue)
-                    Text("Файлы").tag(BurstDestination.files.rawValue)
-                    Text("Панель «Поделиться»").tag(BurstDestination.shareSheet.rawValue)
+                Picker("Burst Destination", selection: $burstDestination) {
+                    Text("Photos").tag(BurstDestination.photos.rawValue)
+                    Text("Files").tag(BurstDestination.files.rawValue)
+                    Text("Share Sheet").tag(BurstDestination.shareSheet.rawValue)
                 }
                 .pickerStyle(.inline)
             }
-            .navigationTitle("Настройки")
+            .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                Button("Готово") {
+                Button("Done") {
                     dismiss()
                 }.fontWeight(.semibold)
             }

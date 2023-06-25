@@ -96,10 +96,9 @@
 		716FFA9A29EAF7BD008B03D1 /* libjpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 716FFA8829EAED81008B03D1 /* libjpeg.a */; };
 		716FFA9B29EAF7C2008B03D1 /* libpng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 716FFA8529EAED81008B03D1 /* libpng.a */; };
 		71755E0D2A03B78400A72ACF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71755E0C2A03B78400A72ACF /* SettingsView.swift */; };
-		717BEA6329ED6357006983CE /* AutoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717BEA6229ED6357006983CE /* AutoButton.swift */; };
-		71E6E75028510FB400EB7974 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E6E74F28510FB400EB7974 /* Extensions.swift */; };
+		71C6C8602A98F30300FEA308 /* CaseIterable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C6C85F2A98F30300FEA308 /* CaseIterable+Extensions.swift */; };
+		71E6E75028510FB400EB7974 /* AVFoundation+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E6E74F28510FB400EB7974 /* AVFoundation+Extensions.swift */; };
 		71E6E7522851371A00EB7974 /* LensSelectorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E6E7512851371A00EB7974 /* LensSelectorButton.swift */; };
-		71FEE834285243CE009E5330 /* SettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FEE833285243CE009E5330 /* SettingButton.swift */; };
 		7AA677151CFF765600B353FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA677141CFF765600B353FB /* AppDelegate.swift */; };
 		7AA677171CFF765600B353FB /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA677161CFF765600B353FB /* CameraViewController.swift */; };
 		7AA6771A1CFF765600B353FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AA677181CFF765600B353FB /* Main.storyboard */; };
@@ -234,10 +233,9 @@
 		716FFA9429EAEF9F008B03D1 /* ImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
 		716FFA9629EAF238008B03D1 /* FormatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatButton.swift; sourceTree = "<group>"; };
 		71755E0C2A03B78400A72ACF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		717BEA6229ED6357006983CE /* AutoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoButton.swift; sourceTree = "<group>"; };
-		71E6E74F28510FB400EB7974 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		71C6C85F2A98F30300FEA308 /* CaseIterable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CaseIterable+Extensions.swift"; sourceTree = "<group>"; };
+		71E6E74F28510FB400EB7974 /* AVFoundation+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVFoundation+Extensions.swift"; sourceTree = "<group>"; };
 		71E6E7512851371A00EB7974 /* LensSelectorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensSelectorButton.swift; sourceTree = "<group>"; };
-		71FEE833285243CE009E5330 /* SettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingButton.swift; sourceTree = "<group>"; };
 		7AA677111CFF765600B353FB /* Stack Camera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stack Camera.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AA677141CFF765600B353FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7AA677161CFF765600B353FB /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
@@ -465,6 +463,28 @@
 			path = metadata;
 			sourceTree = "<group>";
 		};
+		714501812A97E6880054A535 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				716FFA8F29EAEDBD008B03D1 /* DNGSaver.h */,
+				716FFA9029EAEDBD008B03D1 /* DNGSaver.m */,
+				716FFA9229EAEE80008B03D1 /* ImageProcessor.metal */,
+				716FFA9429EAEF9F008B03D1 /* ImageProcessor.swift */,
+				714E378628571B1E008DEBF9 /* ImageSaver.swift */,
+				711DB555294BAF5400A06CEA /* LibRawUtils.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		714501822A97E74C0054A535 /* libraw */ = {
+			isa = PBXGroup;
+			children = (
+				711DB557294BAF6200A06CEA /* internal */,
+				711DB564294BAF6A00A06CEA /* libraw_src */,
+			);
+			path = libraw;
+			sourceTree = "<group>";
+		};
 		716FFA7729EAED81008B03D1 /* libtiff */ = {
 			isa = PBXGroup;
 			children = (
@@ -516,12 +536,19 @@
 			children = (
 				7AA677281CFF7B5C00B353FB /* PreviewView.swift */,
 				71E6E7512851371A00EB7974 /* LensSelectorButton.swift */,
-				71FEE833285243CE009E5330 /* SettingButton.swift */,
-				717BEA6229ED6357006983CE /* AutoButton.swift */,
 				716FFA9629EAF238008B03D1 /* FormatButton.swift */,
 				71755E0C2A03B78400A72ACF /* SettingsView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		71C6C85E2A98F24100FEA308 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				71E6E74F28510FB400EB7974 /* AVFoundation+Extensions.swift */,
+				71C6C85F2A98F30300FEA308 /* CaseIterable+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		7AA677081CFF765500B353FB = {
@@ -544,21 +571,15 @@
 		7AA677131CFF765600B353FB /* StackCamera */ = {
 			isa = PBXGroup;
 			children = (
-				711DB557294BAF6200A06CEA /* internal */,
-				711DB564294BAF6A00A06CEA /* libraw_src */,
+				714501822A97E74C0054A535 /* libraw */,
 				716FFA7729EAED81008B03D1 /* libtiff */,
+				71C6C85E2A98F24100FEA308 /* Extensions */,
 				71AAA32C29EDC1B2000FDBDC /* Views */,
-				711DB5C7294BAF6D00A06CEA /* bridging_header.h */,
-				711DB555294BAF5400A06CEA /* LibRawUtils.swift */,
+				714501812A97E6880054A535 /* Utilities */,
 				71210C752853B37100E44A85 /* RAWCaptureDelegate.swift */,
 				7AA677161CFF765600B353FB /* CameraViewController.swift */,
-				716FFA9229EAEE80008B03D1 /* ImageProcessor.metal */,
-				716FFA9429EAEF9F008B03D1 /* ImageProcessor.swift */,
-				716FFA8F29EAEDBD008B03D1 /* DNGSaver.h */,
-				716FFA9029EAEDBD008B03D1 /* DNGSaver.m */,
-				714E378628571B1E008DEBF9 /* ImageSaver.swift */,
 				7AA677141CFF765600B353FB /* AppDelegate.swift */,
-				71E6E74F28510FB400EB7974 /* Extensions.swift */,
+				711DB5C7294BAF6D00A06CEA /* bridging_header.h */,
 				7AA677201CFF765600B353FB /* Info.plist */,
 				7AA677181CFF765600B353FB /* Main.storyboard */,
 				7AA6771B1CFF765600B353FB /* Assets.xcassets */,
@@ -663,7 +684,6 @@
 				711DB5E8294BB00F00A06CEA /* postprocessing_utils_dcrdefs.cpp in Sources */,
 				711DB5EC294BB01400A06CEA /* fp_dng.cpp in Sources */,
 				711DB5CB294BAFC100A06CEA /* apply_profile.cpp in Sources */,
-				717BEA6329ED6357006983CE /* AutoButton.swift in Sources */,
 				711DB5EE294BB01400A06CEA /* crx.cpp in Sources */,
 				711DB613294BB02200A06CEA /* misc_parsers.cpp in Sources */,
 				711DB610294BB02200A06CEA /* minolta.cpp in Sources */,
@@ -697,7 +717,7 @@
 				711DB5FA294BB01800A06CEA /* ext_preprocess.cpp in Sources */,
 				711DB5D1294BAFDD00A06CEA /* dngsdk_glue.cpp in Sources */,
 				711DB5FB294BB01800A06CEA /* raw2image.cpp in Sources */,
-				71E6E75028510FB400EB7974 /* Extensions.swift in Sources */,
+				71E6E75028510FB400EB7974 /* AVFoundation+Extensions.swift in Sources */,
 				711DB5F6294BB01400A06CEA /* unpack_thumb.cpp in Sources */,
 				711DB5D5294BAFE800A06CEA /* x3f_utils_patched.cpp in Sources */,
 				711DB611294BB02200A06CEA /* hasselblad_model.cpp in Sources */,
@@ -711,6 +731,7 @@
 				7AA677291CFF7B5C00B353FB /* PreviewView.swift in Sources */,
 				711DB5F8294BB01400A06CEA /* decoders_libraw_dcrdefs.cpp in Sources */,
 				711DB556294BAF5500A06CEA /* LibRawUtils.swift in Sources */,
+				71C6C8602A98F30300FEA308 /* CaseIterable+Extensions.swift in Sources */,
 				711DB605294BB02200A06CEA /* fuji.cpp in Sources */,
 				711DB5DE294BAFF100A06CEA /* phaseone_processing.cpp in Sources */,
 				71755E0D2A03B78400A72ACF /* SettingsView.swift in Sources */,
@@ -721,7 +742,6 @@
 				716FFA9129EAEDC1008B03D1 /* DNGSaver.m in Sources */,
 				711DB5CF294BAFCB00A06CEA /* cameralist.cpp in Sources */,
 				711DB5CA294BAFBF00A06CEA /* file_write.cpp in Sources */,
-				71FEE834285243CE009E5330 /* SettingButton.swift in Sources */,
 				711DB5EA294BB00F00A06CEA /* postprocessing_utils.cpp in Sources */,
 				711DB5FD294BB02200A06CEA /* nikon.cpp in Sources */,
 				711DB5E5294BB00F00A06CEA /* dht_demosaic.cpp in Sources */,
@@ -814,7 +834,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OBJC_BRIDGING_HEADER = AVCam/bridging_header.h;
+				SWIFT_OBJC_BRIDGING_HEADER = StackCamera/bridging_header.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -871,7 +891,7 @@
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = AVCam/bridging_header.h;
+				SWIFT_OBJC_BRIDGING_HEADER = StackCamera/bridging_header.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

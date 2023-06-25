@@ -8,25 +8,35 @@
 import UIKit
 import SwiftUI
 
-class FormatButton: UIButton {
+final class FormatButton: UIButton {
     
     @AppStorage("compressedImageFormat")
-    private var compressedImageFormat = CompressedImageFormat.heif.rawValue
+    private static var compressedImageFormat = CompressedImageFormat.heif.rawValue
     
-    enum State: String, CaseIterable {
-        case compressed = "JPEG"
-        case dng = "DNG"
-        case burst = "Burst" // Burst of DNG files
+    private(set) var formatButtonState: State = .dng {
+        didSet {
+            configuration?.subtitle = formatButtonState.title
+        }
+    }
+    
+    enum State: CaseIterable {
+        case compressed
+        case dng
+        case burst // Burst of DNG files
+        
+        var title: String {
+            switch self {
+            case .compressed:
+                return compressedImageFormat.uppercased()
+            case .dng:
+                return "DNG"
+            case .burst:
+                return "Burst"
+            }
+        }
     }
         
-    private(set) var formatButtonState: State = .dng
-
     func changeToNextState() {
         formatButtonState = formatButtonState.next()
-        if formatButtonState == .compressed {
-            configuration?.subtitle = compressedImageFormat.uppercased()
-        } else {
-            configuration?.subtitle = formatButtonState.rawValue
-        }
     }
 }

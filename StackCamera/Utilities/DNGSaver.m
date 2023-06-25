@@ -10,8 +10,8 @@
 //
 
 #import "DNGSaver.h"
-#include "libraw_src/libraw/libraw.h"
-#include "libtiff/include/tiffio.h"
+#include "../libraw/libraw_src/libraw/libraw.h"
+#include "../libtiff/include/tiffio.h"
 
 @implementation DNGSaver
 
