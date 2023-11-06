@@ -14,8 +14,10 @@ A single RAW image versus 5/10/40 merged frames:
 The images were taken with an iPhone 12 mini's main (wide angle) camera.
 
 ## To-do list
+- [ ] Add support for iOS 17 (can't save images to Photos there)
 - [ ] Refactor massive `CameraViewController`
-- [ ] Ensure the UI is displayed correctly on all supported iPhones
+- [ ] Fix UI issues and ensure it is displayed correctly on all supported iPhones
+- [ ] Improve permission handling
 - [ ] Improve error handling
 - [ ] Improve the image processing pipeline, possibly by adapting the [hdr-plus-swift](https://github.com/martin-marek/hdr-plus-swift) code
 

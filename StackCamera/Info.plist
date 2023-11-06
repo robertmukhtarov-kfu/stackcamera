@@ -23,13 +23,11 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Stack Camera uses the camera to take photos and video.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Stack Camera uses your location to tag where photos and videos are taken.</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Stack Camera uses the microphone to record sound during Live Photos and movies.</string>
+	<string>Stack Camera uses the camera to take photos.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Stack Camera saves captured photos and videos to your photo library.</string>
+	<string>Stack Camera saves captured photos to your photo library.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Stack Camera uses your location to tag where photos are taken.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>Launch Screen</string>
 	<key>UIMainStoryboardFile</key>

@@ -41,8 +41,9 @@ struct SettingsView: View {
                         Text("Auto").tag(0)
                         Text("8 × 8").tag(8)
                         Text("16 × 16").tag(16)
-                        Text("32 × 32").tag(32)
-                        Text("64 × 64").tag(64)
+// 32 and 64 currently have issues
+//                        Text("32 × 32").tag(32)
+//                        Text("64 × 64").tag(64)
                     }
                 } header: {
                     Text("Alignment Settings")

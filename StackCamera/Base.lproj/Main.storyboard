@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -40,15 +40,15 @@
                                     <action selector="autoImageCountButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gub-T5-Ra0"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15" minValue="1" maxValue="40" translatesAutoresizingMaskIntoConstraints="NO" id="P6g-1i-RjL">
-                                <rect key="frame" x="70.333333333333343" y="47" width="279.66666666666663" height="31"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="1" maxValue="40" translatesAutoresizingMaskIntoConstraints="NO" id="P6g-1i-RjL">
+                                <rect key="frame" x="70.333333333333314" y="47" width="112.66666666666669" height="31"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="imageCountSliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Qgv-Gc-FtC"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnn-pn-elD">
-                                <rect key="frame" x="358" y="53" width="20" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnn-pn-elD">
+                                <rect key="frame" x="191" y="53" width="20" height="18"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="Bky-7x-yJl"/>
@@ -58,7 +58,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3eR-Rn-XpZ" userLabel="Preview" customClass="PreviewView" customModule="Stack_Camera" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="85" width="390" height="537"/>
+                                <rect key="frame" x="0.0" y="85" width="223" height="537"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -66,27 +66,27 @@
                                 </connections>
                             </view>
                             <label hidden="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera Unavailable" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zf0-db-esM" userLabel="Camera Unavailable">
-                                <rect key="frame" x="8" y="407.66666666666669" width="374" height="28.666666666666686"/>
+                                <rect key="frame" x="8" y="407.66666666666669" width="207" height="28.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="81e-1F-kuR">
-                                <rect key="frame" x="18" y="630" width="338" height="31"/>
+                                <rect key="frame" x="18" y="630" width="171" height="31"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="isoSliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="b1Y-9k-ycd"/>
                                 </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="2tU-sq-Qmz">
-                                <rect key="frame" x="18" y="630" width="354" height="31"/>
+                                <rect key="frame" x="18" y="630" width="187" height="31"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="shutterSpeedSliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="5cZ-Ye-Kzf"/>
                                 </connections>
                             </slider>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Loh-RI-oKw">
-                                <rect key="frame" x="135" y="293.66666666666669" width="120" height="120"/>
+                                <rect key="frame" x="51.666666666666657" y="293.66666666666669" width="120" height="120"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xr5-f4-VnK">
                                         <rect key="frame" x="11.333333333333343" y="35.666666666666629" width="97.666666666666671" height="48.333333333333343"/>
@@ -131,20 +131,20 @@
                                             <outletCollection property="gestureRecognizers" destination="klc-uI-Wcw" appends="YES" id="AsP-7D-XMs"/>
                                         </connections>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="bEw-LZ-QXr" customClass="SettingButton" customModule="Stack_Camera" customModuleProvider="target">
-                                        <rect key="frame" x="40.333333333333343" y="0.0" width="68" height="44"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="bEw-LZ-QXr">
+                                        <rect key="frame" x="44.333333333333329" y="0.0" width="52.333333333333329" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Exp" subtitle="Manual" titleAlignment="center">
+                                        <buttonConfiguration key="configuration" style="plain" title="Exp" subtitle="Auto" titleAlignment="center">
                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="12"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="exposureModeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G5k-00-kXC"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bo5-6T-H6n" customClass="SettingButton" customModule="Stack_Camera" customModuleProvider="target">
-                                        <rect key="frame" x="118.66666666666664" y="0.0" width="55.333333333333329" height="44"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bo5-6T-H6n">
+                                        <rect key="frame" x="111" y="0.0" width="55" height="44"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="ISO" subtitle="50" titleAlignment="center">
@@ -154,8 +154,8 @@
                                             <action selector="isoButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iHt-hR-smk"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="doD-On-kjN" customClass="SettingButton" customModule="Stack_Camera" customModuleProvider="target">
-                                        <rect key="frame" x="184.33333333333334" y="0.0" width="87.333333333333343" height="44"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="doD-On-kjN">
+                                        <rect key="frame" x="180.33333333333334" y="0.0" width="87.333333333333343" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="YyS-EH-S41"/>
                                         </constraints>
@@ -196,7 +196,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uCj-6P-mHF" userLabel="Photo">
-                                <rect key="frame" x="160" y="724" width="70" height="70"/>
+                                <rect key="frame" x="76.666666666666671" y="724" width="70.000000000000014" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="NtC-UN-gTs"/>
                                     <constraint firstAttribute="width" constant="70" id="dxU-UP-4Ae"/>
@@ -214,11 +214,11 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.stack.3d.down.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pcu-VY-4CM">
-                                <rect key="frame" x="42" y="52" width="20.333333333333329" height="21"/>
+                                <rect key="frame" x="42" y="51" width="20.333333333333329" height="25"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CbS-OU-vnG">
-                                <rect key="frame" x="44.333333333333343" y="739" width="40" height="39.333333333333371"/>
+                                <rect key="frame" x="16.666666666666671" y="739" width="40" height="39.333333333333371"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -282,9 +282,9 @@
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="constraints">
+                                <exclude reference="m8a-cF-Rf0"/>
                                 <include reference="b0r-sh-cwd"/>
                                 <exclude reference="eWs-co-Aaz"/>
-                                <exclude reference="m8a-cF-Rf0"/>
                                 <include reference="ZGJ-Ly-Ppb"/>
                             </mask>
                         </variation>
@@ -376,7 +376,7 @@
         <image name="CapturePhoto" width="100" height="100"/>
         <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="photo.on.rectangle.angled" catalog="system" width="128" height="98"/>
-        <image name="square.stack.3d.down.right" catalog="system" width="123" height="128"/>
+        <image name="square.stack.3d.down.right" catalog="system" width="105" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

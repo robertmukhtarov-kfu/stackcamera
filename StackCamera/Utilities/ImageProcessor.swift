@@ -62,7 +62,7 @@ func loadImages(imageBuffer: [Data]) throws -> ([MTLTexture], Int) {
 
     for i in 0..<imageBuffer.count {
         computeQueue.async(group: computeGroup) {
-            if let texture = imageDataToBayerMTLTexture(imageBuffer[i], device) {
+            if let texture = imageDataToBayerMTLTexture(imageData: imageBuffer[i], device: device) {
                 print("Loaded image texture")
                 accessQueue.sync {
                     texturesDict[i] = texture

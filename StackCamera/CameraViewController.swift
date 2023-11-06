@@ -13,7 +13,7 @@ import SwiftUI
 final class CameraViewController: UIViewController {
     
     @AppStorage("tileSize")
-    private var tileSize = 16
+    private var tileSize = 0
     
     @AppStorage("burstDestination")
     private var burstDestination = BurstDestination.shareSheet.rawValue
@@ -112,6 +112,13 @@ final class CameraViewController: UIViewController {
                     self.present(alertController, animated: true, completion: nil)
                 }
             }
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        ImageSaver.shared.requestAuthorizationIfNeeded { success in
+            if !success { self.showAllowFullAccessToPhotoLibraryAlert() }
         }
     }
     
@@ -255,9 +262,9 @@ final class CameraViewController: UIViewController {
     @IBOutlet weak var lensSelectorButton: LensSelectorButton!
     @IBOutlet private weak var cameraUnavailableLabel: UILabel!
     
-    var lenses: [AVCaptureDevice.DeviceType] = [.builtInWideAngleCamera, .builtInTelephotoCamera, .builtInUltraWideCamera]
+    private var lenses: [AVCaptureDevice.DeviceType] = [.builtInWideAngleCamera, .builtInTelephotoCamera, .builtInUltraWideCamera]
     
-    var selectedLensIndex = 0
+    private var selectedLensIndex = 0
     
     private let videoDeviceDiscoverySession = AVCaptureDevice.DiscoverySession(
         deviceTypes: [.builtInWideAngleCamera, .builtInDualCamera, .builtInTrueDepthCamera, .builtInDualWideCamera],
@@ -372,6 +379,10 @@ final class CameraViewController: UIViewController {
     
     /// - Tag: CapturePhoto
     @IBAction private func capturePhoto(_ photoButton: UIButton) {
+        guard ImageSaver.shared.isAuthorized else {
+            showAllowFullAccessToPhotoLibraryAlert()
+            return
+        }
         
         processingIndicatorView.isHidden = false
         processingStatusLabel.text = "1/\(imageCount)"
@@ -379,7 +390,6 @@ final class CameraViewController: UIViewController {
         startTime = CFAbsoluteTimeGetCurrent()
         
         let device = self.videoDeviceInput.device
-        let iso = device.iso
         
         for _ in 1...imageCount {
             dispatchGroup.enter()
@@ -434,7 +444,9 @@ final class CameraViewController: UIViewController {
                 } else {
                     let tileSize: Int
                     if self.tileSize == 0 {
-                        tileSize = iso > 700 ? 32 : 16
+                        // TODO: Fix 32 and 64 tile sizes
+                        // tileSize = iso > 700 ? 32 : 16
+                        tileSize = 16
                     } else {
                         tileSize = self.tileSize
                     }
@@ -497,7 +509,24 @@ final class CameraViewController: UIViewController {
         case .none:
             fatalError("No burst destination selected")
         }
-
+    }
+    
+    private func showAllowFullAccessToPhotoLibraryAlert() {
+        let alert = UIAlertController(
+            title: "Allow Access to Photos",
+            message: "Please allow full access to your photo library. Stack Camera requires it in order to save images in its own folder.",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "Open App Settings", style: .default) { _ in
+            guard let url = URL(string: UIApplication.openSettingsURLString),
+                  UIApplication.shared.canOpenURL(url) else {
+                assertionFailure("Not able to open app privacy settings")
+                return
+            }
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        })
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        self.present(alert, animated: true)
     }
 
     private var captureDelegates: [Int64: NSObject] = [:]
@@ -526,12 +555,24 @@ final class CameraViewController: UIViewController {
     @IBOutlet private weak var formatButton: FormatButton!
     @IBOutlet private weak var galleryImageView: UIImageView!
     
-    var autoImageCountEnabled: Bool = false
-    var rawPlusEnabled: Bool = false
-    var customModeSSValue: CMTime!
-    var customModeISOValue: Float!
-    var imageCount = 15
-    var imagesShotCount = 0
+    private var autoImageCountEnabled: Bool = false
+    private var rawPlusEnabled: Bool = false
+    private var customModeSSValue: CMTime!
+    private var customModeISOValue: Float!
+    private var imageCount = 10
+    private var imagesShotCount = 0
+    
+    // In iOS 17, auto exposure may use an ISO value outside the [minISO, maxISO] range. The app crashes if you try to assign that value manually.
+    // This computed property works around the issue.
+    private var deviceISO: Float {
+        let device = videoDeviceInput.device
+        let isoValue = videoDeviceInput.device.iso
+        let minISO = device.activeFormat.minISO
+        let maxISO = device.activeFormat.maxISO
+        if isoValue < minISO { return minISO }
+        if isoValue > maxISO { return maxISO }
+        return isoValue
+    }
     
     private func setupControls() {
         settingValuesObservation.removeAll()
@@ -582,21 +623,21 @@ final class CameraViewController: UIViewController {
         )
     }
     
-    @IBAction func isoButtonTapped(_ isoButton: UIButton) {
+    @IBAction private func isoButtonTapped(_ isoButton: UIButton) {
         let device = videoDeviceInput.device
         guard device.exposureMode == .custom else { return }
         isoSlider.isHidden.toggle()
         shutterSpeedSlider.isHidden = true
     }
     
-    @IBAction func shutterSpeedButtonTapped(_ sender: Any) {
+    @IBAction private func shutterSpeedButtonTapped(_ sender: Any) {
         let device = videoDeviceInput.device
         guard device.exposureMode == .custom else { return }
         shutterSpeedSlider.isHidden.toggle()
         isoSlider.isHidden = true
     }
     
-    @IBAction func isoSliderValueChanged(_ slider: UISlider) {
+    @IBAction private func isoSliderValueChanged(_ slider: UISlider) {
         let device = videoDeviceInput.device
         guard device.exposureMode == .custom else { return }
         try! device.lockForConfiguration()
@@ -605,13 +646,13 @@ final class CameraViewController: UIViewController {
         isoButton.configuration?.subtitle = "\(Int(slider.value))"
     }
     
-    @IBAction func imageCountSliderValueChanged(_ slider: UISlider) {
+    @IBAction private func imageCountSliderValueChanged(_ slider: UISlider) {
         guard !autoImageCountEnabled else { return }
         imageCount = Int(slider.value)
         imageCountLabel.text = "\(imageCount)"
     }
     
-    @IBAction func shutterSpeedSliderValueChanged(_ slider: UISlider) {
+    @IBAction private func shutterSpeedSliderValueChanged(_ slider: UISlider) {
         let device = videoDeviceInput.device
 
         let kExposureDurationPower = 5; // Higher numbers will give the slider more sensitivity at shorter durations
@@ -626,7 +667,7 @@ final class CameraViewController: UIViewController {
         let newDurationSeconds = Double(p) * (maxDurationSeconds - minDurationSeconds) + minDurationSeconds;
         
         try! device.lockForConfiguration()
-        device.setExposureModeCustom(duration: CMTimeMakeWithSeconds(newDurationSeconds, preferredTimescale: 1000*1000*1000), iso: device.iso)
+        device.setExposureModeCustom(duration: CMTimeMakeWithSeconds(newDurationSeconds, preferredTimescale: 1000*1000*1000), iso: deviceISO)
         device.unlockForConfiguration()
         
         if (newDurationSeconds < 1) {
@@ -637,11 +678,11 @@ final class CameraViewController: UIViewController {
         }
     }
     
-    @IBAction func exposureModeButtonTapped(_ exposureModeButton: UIButton) {
+    @IBAction private func exposureModeButtonTapped(_ exposureModeButton: UIButton) {
         let device = videoDeviceInput.device
         try! device.lockForConfiguration()
         if let mode = exposureModeButton.configuration?.subtitle, mode == "Auto" {
-            device.setExposureModeCustom(duration: device.exposureDuration, iso: device.iso)
+            device.setExposureModeCustom(duration: device.exposureDuration, iso: deviceISO)
             exposureModeButton.configuration?.subtitle = "Manual"
             settingValuesObservation.removeAll()
         } else {
@@ -652,20 +693,20 @@ final class CameraViewController: UIViewController {
         device.unlockForConfiguration()
     }
     
-    @IBAction func rawPlusButtonTapped(_ button: UIButton) {
+    @IBAction private func rawPlusButtonTapped(_ button: UIButton) {
         formatButton.changeToNextState()
     }
     
-    @IBAction func galleryButtonTapped(_ sender: Any) {
+    @IBAction private func galleryButtonTapped(_ sender: Any) {
         UIApplication.shared.open(URL(string: "photos-redirect://")!, options: [:], completionHandler: nil)
     }
     
-    @IBAction func settingsButtonTapped(_ sender: Any) {
+    @IBAction private func settingsButtonTapped(_ sender: Any) {
         let settingsViewController = UIHostingController(rootView: SettingsView())
         present(settingsViewController, animated: true)
     }
     
-    @IBAction func autoImageCountButtonTapped(_ sender: Any) {
+    @IBAction private func autoImageCountButtonTapped(_ sender: Any) {
         autoImageCountEnabled.toggle()
         autoImageCountButton.tintColor = autoImageCountEnabled ? .systemYellow : .white
         imageCountSlider.isEnabled = !autoImageCountEnabled

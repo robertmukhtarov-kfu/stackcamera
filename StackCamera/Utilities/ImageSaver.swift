@@ -11,15 +11,19 @@ import SwiftUI
 import Photos
 
 final class ImageSaver: NSObject {
+    var isAuthorized: Bool {
+        PHPhotoLibrary.authorizationStatus(for: .readWrite) == .authorized
+    }
+    
     @AppStorage("compressedImageFormat")
     private var compressedImageFormat = CompressedImageFormat.heif.rawValue
     
-    static let albumName = "Stack Camera"
+    private static let albumName = "Stack Camera"
     static let shared = ImageSaver()
     
-    var assetCollection: PHAssetCollection!
+    private var assetCollection: PHAssetCollection!
     
-    override init() {
+    private override init() {
         super.init()
         
         if let assetCollection = fetchAssetCollectionForAlbum() {
@@ -28,35 +32,22 @@ final class ImageSaver: NSObject {
         }
     }
     
-    func requestAuthorizationHandler(status: PHAuthorizationStatus) {
-        if PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.authorized {
-            self.createAlbum()
-        } else {
-            print("Album creation failed")
-        }
-    }
-    
-    func createAlbum() {
-        PHPhotoLibrary.shared().performChanges({
-            PHAssetCollectionChangeRequest.creationRequestForAssetCollection(withTitle: ImageSaver.albumName)
-        }) { success, error in
-            if success {
-                self.assetCollection = self.fetchAssetCollectionForAlbum()
-            } else {
-                print("error \(String(describing: error))")
-            }
-        }
-    }
-    
-    func fetchAssetCollectionForAlbum() -> PHAssetCollection? {
-        let fetchOptions = PHFetchOptions()
-        fetchOptions.predicate = NSPredicate(format: "title = %@", ImageSaver.albumName)
-        let collection = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .any, options: fetchOptions)
+    func requestAuthorizationIfNeeded(completion: @escaping (_ success: Bool) -> Void) {
+        // Not possible to create a custom folder with .addOnly access
+        // https://stackoverflow.com/questions/69062763/camera-app-create-new-album-with-phphotolibrary-with-addonly-phaccesslevel
         
-        if let _: AnyObject = collection.firstObject {
-            return collection.firstObject
+        switch PHPhotoLibrary.authorizationStatus(for: .readWrite) {
+        case .notDetermined:
+            PHPhotoLibrary.requestAuthorization(for: .readWrite) { status in
+                self.requestAuthorizationIfNeeded(completion: completion)
+            }
+        case .authorized:
+            self.createAlbumIfNeeded { success in
+                completion(success)
+            }
+        default:
+            completion(false)
         }
-        return nil
     }
     
     func saveCompressedImage(imageURL dngURL: URL) {
@@ -74,20 +65,18 @@ final class ImageSaver: NSObject {
         case .none:
             fatalError("Compressed image format is invalid")
         }
-        ImageSaver.shared.save(imageData: imageData)
+        save(imageData: imageData)
     }
     
     func saveDNG(imageURL: URL) {
         // Not using addResource(with:fileURL:options:) in order to save image with the default IMG_ prefix
-        ImageSaver.shared.save(imageData: try! Data(contentsOf: imageURL))
+        save(imageData: try! Data(contentsOf: imageURL))
     }
     
-    func save(imageData: Data? = nil, completion: (() -> ())? = nil) {
-        if assetCollection == nil {
-            return
-        }
-        
-        PHPhotoLibrary.shared().performChanges({
+    private func save(imageData: Data? = nil, completion: (() -> ())? = nil) {
+        createAlbumIfNeeded()
+        guard let assetCollection else { return }
+        PHPhotoLibrary.shared().performChanges {
             let assetChangeRequest = PHAssetCreationRequest.forAsset()
             let creationOptions = PHAssetResourceCreationOptions()
             creationOptions.shouldMoveFile = true
@@ -97,18 +86,48 @@ final class ImageSaver: NSObject {
                 fatalError("No image data.")
             }
             let assetPlaceHolder = assetChangeRequest.placeholderForCreatedAsset
-            let albumChangeRequest = PHAssetCollectionChangeRequest(for: self.assetCollection)
+            let albumChangeRequest = PHAssetCollectionChangeRequest(for: assetCollection)
             let enumeration: NSArray = [assetPlaceHolder!]
             
-            if self.assetCollection.estimatedAssetCount == 0 {
+            if assetCollection.estimatedAssetCount == 0 {
                 albumChangeRequest!.addAssets(enumeration)
-            }
-            else {
+            } else {
                 albumChangeRequest!.insertAssets(enumeration, at: [0])
             }
-            
-        }, completionHandler: { status, error in
+        } completionHandler: { status, error in
+            if let error { print ("Error: \(error.localizedDescription)")}
             completion?()
-        })
+        }
+    }
+    
+    private func createAlbumIfNeeded(completion: ((_ success: Bool) -> Void)? = nil) {
+        if let assetCollection = fetchAssetCollectionForAlbum() {
+            // Album already exists
+            self.assetCollection = assetCollection
+            completion?(true)
+        } else {
+            PHPhotoLibrary.shared().performChanges({
+                PHAssetCollectionChangeRequest.creationRequestForAssetCollection(withTitle: ImageSaver.albumName)
+            }) { success, error in
+                if success {
+                    self.assetCollection = self.fetchAssetCollectionForAlbum()
+                    completion?(true)
+                } else {
+                    // Unable to create album
+                    completion?(false)
+                }
+            }
+        }
+    }
+    
+    private func fetchAssetCollectionForAlbum() -> PHAssetCollection? {
+        let fetchOptions = PHFetchOptions()
+        fetchOptions.predicate = NSPredicate(format: "title = %@", ImageSaver.albumName)
+        let collection = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .any, options: fetchOptions)
+        
+        if let _: AnyObject = collection.firstObject {
+            return collection.firstObject
+        }
+        return nil
     }
 }

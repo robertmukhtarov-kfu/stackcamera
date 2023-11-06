@@ -8,7 +8,7 @@
 import Foundation
 import MetalKit
 
-func imageDataToBayerMTLTexture(_ imageData: Data, _ device: MTLDevice) -> MTLTexture? {
+func imageDataToBayerMTLTexture(imageData: Data, device: MTLDevice) -> MTLTexture? {
     let rawData = libraw_init(0)
     let image = imageData
     let imageURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(UUID().uuidString)
